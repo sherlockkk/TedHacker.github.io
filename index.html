@@ -268,6 +268,142 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/06/Mybatis中-和-的坑/" itemprop="url">
+                  Mybatis中#和$的坑
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-06T15:22:38+08:00" content="2016-08-06">
+              2016-08-06
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Mybatis/" itemprop="url" rel="index">
+                    <span itemprop="name">Mybatis</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/06/Mybatis中-和-的坑/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/06/Mybatis中-和-的坑/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/08/06/Mybatis中-和-的坑/" class="leancloud_visitors" data-flag-title="Mybatis中#和$的坑">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>最近在项目中遇到一个场景：依据不同的请求参数，将数据库的数据按不同的数据列进行排序提取。</p>
+<p>Mapper文件截取如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"querySellGoodsOrderById"</span> <span class="attr">resultMap</span>=<span class="string">"BaseResultMap"</span>&gt;</span></div><div class="line">  select id, title, description, like_count, view_count, upload_time</div><div class="line">  from goods</div><div class="line">  where status=0</div><div class="line">  <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"idList!=null"</span>&gt;</span></div><div class="line">    and id in</div><div class="line">    <span class="tag">&lt;<span class="name">foreach</span> <span class="attr">item</span>=<span class="string">"item"</span> <span class="attr">index</span>=<span class="string">"index"</span> <span class="attr">collection</span>=<span class="string">"idList"</span></div><div class="line">             <span class="attr">open</span>=<span class="string">"("</span> <span class="attr">separator</span>=<span class="string">","</span> <span class="attr">close</span>=<span class="string">")"</span>&gt;</span></div><div class="line">      #&#123;item&#125;</div><div class="line">    <span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">if</span>&gt;</span></div><div class="line">  order by #&#123;order&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>接口定义：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function">List&lt;GoodsInfo&gt; <span class="title">querySellGoodsOrderById</span><span class="params">(@Param(<span class="string">"idList"</span>)</span> List idList,</div><div class="line">                                        @<span class="title">Param</span><span class="params">(<span class="string">"order"</span>)</span> String order)</span>;</div></pre></td></tr></table></figure>
+<p>但是在测试中，代码参数order无论取’like_count’、’view_count’或’upload_time’方法执行结果都是保持同一种顺序。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/06/Mybatis中-和-的坑/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/06/Spring-Task使用方法/" itemprop="url">
                   Spring Task使用方法
                 </a>
@@ -834,7 +970,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -842,7 +978,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -851,7 +987,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
