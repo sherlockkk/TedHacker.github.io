@@ -94,7 +94,7 @@ Mapper文件截取如下：
 <meta property="og:description" content="最近在项目中遇到一个场景：依据不同的请求参数，将数据库的数据按不同的数据列进行排序提取。
 Mapper文件截取如下：
 12345678910111213&amp;lt;select id=&quot;querySellGoodsOrderById&quot; resultMap=&quot;BaseResultMap&quot;&amp;gt;  select id, title, description, like_count, view_count">
-<meta property="og:updated_time" content="2016-08-06T08:21:24.000Z">
+<meta property="og:updated_time" content="2016-08-06T08:24:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mybatis中#和$的坑">
 <meta name="twitter:description" content="最近在项目中遇到一个场景：依据不同的请求参数，将数据库的数据按不同的数据列进行排序提取。
@@ -355,9 +355,9 @@ Mapper文件截取如下：
 <p>但是在测试中，代码参数order无论取’like_count’、’view_count’或’upload_time’方法执行结果都是保持同一种顺序。</p>
 <a id="more"></a>
 <p>其实，在Mybatis中#符号表示<em>参数</em>，如<code>select * from test where value=#{param}</code>传入参数param=”hello”后，实际生成<code>select * from test where value=&#39;hello&#39;</code>。因此，在上面的场景中，实际的SQL结果是<code>order by &#39;upload_time&#39;</code>，而正确的结果应该是<code>order by upload_time</code>。</p>
-<p>在Mybatis还可以使用$符号，$表示原本的<em>字符串</em>，即传什么参数，SQL中就填入什么。如<code>select * from test order by #{param}</code>传入参数param=”time”后，实际生成<code>select * from test order by time</code>。这个才是上文场景中需要的。</p>
+<p>在Mybatis还可以使用\$符号，\$表示原本的<em>字符串</em>，即传什么参数，SQL中就填入什么。如<code>select * from test order by #{param}</code>传入参数param=”time”后，实际生成<code>select * from test order by time</code>。这个才是上文场景中需要的。</p>
 <p>注意点：</p>
-<p>#号会使用PreparedStatement，变量处用?号代替，防止SQL注入，而$号是直接替换没有这个功能。</p>
+<p>#号会使用PreparedStatement，变量处用?号代替，防止SQL注入，而\$号是直接替换没有这个功能。</p>
 
       
     </div>
