@@ -84,46 +84,25 @@
 
 
 
-<meta name="description" content="基础的new Thread存在以下几种弊端：
+<meta name="description" content="&amp;#x57FA;&amp;#x7840;&amp;#x7684;new Thread&amp;#x5B58;&amp;#x5728;&amp;#x4EE5;&amp;#x4E0B;&amp;#x51E0;&amp;#x79CD;&amp;#x5F0A;&amp;#x7AEF;&amp;#xFF1A;
 
-new Thread新建对象性能差
-线程缺乏统一管理，如无限新建线程、线程相互竞争等
-对线程控制性弱，如线程中断、线程定时执行等
-
-相比new Thread，线程池有以下几种优点：
-
-可重用存在的线程，减少线程创建消亡开销
-可控制线程最大并发数
-提供方便的线程中断、线程定时执行等功能">
+new Thread&amp;#x65B0;&amp;#x5EFA;&amp;#x5BF9;&amp;#x8C61;&amp;#x6027;&amp;#x80FD;&amp;#x5DEE;
+&amp;#x7EBF;&amp;#x7A0B;&amp;#x7F3A;&amp;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring线程池使用方法">
 <meta property="og:url" content="https://tedhacker.github.io/2016/08/05/Spring线程池使用方法/index.html">
 <meta property="og:site_name" content="Ted's Blog">
-<meta property="og:description" content="基础的new Thread存在以下几种弊端：
+<meta property="og:description" content="&amp;#x57FA;&amp;#x7840;&amp;#x7684;new Thread&amp;#x5B58;&amp;#x5728;&amp;#x4EE5;&amp;#x4E0B;&amp;#x51E0;&amp;#x79CD;&amp;#x5F0A;&amp;#x7AEF;&amp;#xFF1A;
 
-new Thread新建对象性能差
-线程缺乏统一管理，如无限新建线程、线程相互竞争等
-对线程控制性弱，如线程中断、线程定时执行等
-
-相比new Thread，线程池有以下几种优点：
-
-可重用存在的线程，减少线程创建消亡开销
-可控制线程最大并发数
-提供方便的线程中断、线程定时执行等功能">
+new Thread&amp;#x65B0;&amp;#x5EFA;&amp;#x5BF9;&amp;#x8C61;&amp;#x6027;&amp;#x80FD;&amp;#x5DEE;
+&amp;#x7EBF;&amp;#x7A0B;&amp;#x7F3A;&amp;">
 <meta property="og:updated_time" content="2016-08-06T08:45:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring线程池使用方法">
-<meta name="twitter:description" content="基础的new Thread存在以下几种弊端：
+<meta name="twitter:description" content="&amp;#x57FA;&amp;#x7840;&amp;#x7684;new Thread&amp;#x5B58;&amp;#x5728;&amp;#x4EE5;&amp;#x4E0B;&amp;#x51E0;&amp;#x79CD;&amp;#x5F0A;&amp;#x7AEF;&amp;#xFF1A;
 
-new Thread新建对象性能差
-线程缺乏统一管理，如无限新建线程、线程相互竞争等
-对线程控制性弱，如线程中断、线程定时执行等
-
-相比new Thread，线程池有以下几种优点：
-
-可重用存在的线程，减少线程创建消亡开销
-可控制线程最大并发数
-提供方便的线程中断、线程定时执行等功能">
+new Thread&amp;#x65B0;&amp;#x5EFA;&amp;#x5BF9;&amp;#x8C61;&amp;#x6027;&amp;#x80FD;&amp;#x5DEE;
+&amp;#x7EBF;&amp;#x7A0B;&amp;#x7F3A;&amp;">
 
 
 
@@ -371,26 +350,26 @@ new Thread新建对象性能差
       
 
       
-        <p>基础的new Thread存在以下几种弊端：</p>
+        <p>&#x57FA;&#x7840;&#x7684;new Thread&#x5B58;&#x5728;&#x4EE5;&#x4E0B;&#x51E0;&#x79CD;&#x5F0A;&#x7AEF;&#xFF1A;</p>
 <ul>
-<li>new Thread新建对象性能差</li>
-<li>线程缺乏统一管理，如无限新建线程、线程相互竞争等</li>
-<li>对线程控制性弱，如线程中断、线程定时执行等</li>
+<li>new Thread&#x65B0;&#x5EFA;&#x5BF9;&#x8C61;&#x6027;&#x80FD;&#x5DEE;</li>
+<li>&#x7EBF;&#x7A0B;&#x7F3A;&#x4E4F;&#x7EDF;&#x4E00;&#x7BA1;&#x7406;&#xFF0C;&#x5982;&#x65E0;&#x9650;&#x65B0;&#x5EFA;&#x7EBF;&#x7A0B;&#x3001;&#x7EBF;&#x7A0B;&#x76F8;&#x4E92;&#x7ADE;&#x4E89;&#x7B49;</li>
+<li>&#x5BF9;&#x7EBF;&#x7A0B;&#x63A7;&#x5236;&#x6027;&#x5F31;&#xFF0C;&#x5982;&#x7EBF;&#x7A0B;&#x4E2D;&#x65AD;&#x3001;&#x7EBF;&#x7A0B;&#x5B9A;&#x65F6;&#x6267;&#x884C;&#x7B49;</li>
 </ul>
-<p>相比new Thread，线程池有以下几种优点：</p>
+<p>&#x76F8;&#x6BD4;new Thread&#xFF0C;&#x7EBF;&#x7A0B;&#x6C60;&#x6709;&#x4EE5;&#x4E0B;&#x51E0;&#x79CD;&#x4F18;&#x70B9;&#xFF1A;</p>
 <ul>
-<li>可重用存在的线程，减少线程创建消亡开销</li>
-<li>可控制线程最大并发数</li>
-<li>提供方便的线程中断、线程定时执行等功能</li>
+<li>&#x53EF;&#x91CD;&#x7528;&#x5B58;&#x5728;&#x7684;&#x7EBF;&#x7A0B;&#xFF0C;&#x51CF;&#x5C11;&#x7EBF;&#x7A0B;&#x521B;&#x5EFA;&#x6D88;&#x4EA1;&#x5F00;&#x9500;</li>
+<li>&#x53EF;&#x63A7;&#x5236;&#x7EBF;&#x7A0B;&#x6700;&#x5927;&#x5E76;&#x53D1;&#x6570;</li>
+<li>&#x63D0;&#x4F9B;&#x65B9;&#x4FBF;&#x7684;&#x7EBF;&#x7A0B;&#x4E2D;&#x65AD;&#x3001;&#x7EBF;&#x7A0B;&#x5B9A;&#x65F6;&#x6267;&#x884C;&#x7B49;&#x529F;&#x80FD;</li>
 </ul>
 <a id="more"></a>
-<p>本文介绍Spring线程池的简单使用</p>
-<p>1：在Spring的配置文件(如spring.xml)中增加线程配置</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span> =<span class="string">"threadPoolTaskExecutor"</span> <span class="attr">class</span>=<span class="string">"org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"corePoolSize"</span> <span class="attr">value</span>=<span class="string">"5"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"maxPoolSize"</span> <span class="attr">value</span>=<span class="string">"50"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"queueCapacity"</span> <span class="attr">value</span>=<span class="string">"200"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"waitForTasksToCompleteOnShutdown"</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>2：使用类中增加bean注入</p>
+<p>&#x672C;&#x6587;&#x4ECB;&#x7ECD;Spring&#x7EBF;&#x7A0B;&#x6C60;&#x7684;&#x7B80;&#x5355;&#x4F7F;&#x7528;</p>
+<p>1&#xFF1A;&#x5728;Spring&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;(&#x5982;spring.xml)&#x4E2D;&#x589E;&#x52A0;&#x7EBF;&#x7A0B;&#x914D;&#x7F6E;</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span> =<span class="string">&quot;threadPoolTaskExecutor&quot;</span> <span class="attr">class</span>=<span class="string">&quot;org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor&quot;</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;corePoolSize&quot;</span> <span class="attr">value</span>=<span class="string">&quot;5&quot;</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;maxPoolSize&quot;</span> <span class="attr">value</span>=<span class="string">&quot;50&quot;</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;queueCapacity&quot;</span> <span class="attr">value</span>=<span class="string">&quot;200&quot;</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;waitForTasksToCompleteOnShutdown&quot;</span> <span class="attr">value</span>=<span class="string">&quot;true&quot;</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>2&#xFF1A;&#x4F7F;&#x7528;&#x7C7B;&#x4E2D;&#x589E;&#x52A0;bean&#x6CE8;&#x5165;</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Resource</span></div><div class="line"><span class="keyword">private</span> ThreadPoolTaskExecutor threadPoolTaskExecutor;</div></pre></td></tr></table></figure>
-<p>3：根据场景使用线程池</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">threadPoolTaskExecutor.execute(<span class="keyword">new</span> Runnable()&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            Tools.sendEmail(user, EmailRequestType.SEND_REGISTER);</div><div class="line">        &#125; <span class="keyword">catch</span> (MessagingException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125; <span class="keyword">catch</span> (UnsupportedEncodingException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>3&#xFF1A;&#x6839;&#x636E;&#x573A;&#x666F;&#x4F7F;&#x7528;&#x7EBF;&#x7A0B;&#x6C60;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">threadPoolTaskExecutor.execute(<span class="keyword">new</span> Runnable(){</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>{</div><div class="line">        <span class="keyword">try</span> {</div><div class="line">            Tools.sendEmail(user, EmailRequestType.SEND_REGISTER);</div><div class="line">        } <span class="keyword">catch</span> (MessagingException e) {</div><div class="line">            e.printStackTrace();</div><div class="line">        } <span class="keyword">catch</span> (UnsupportedEncodingException e) {</div><div class="line">            e.printStackTrace();</div><div class="line">        }</div><div class="line">    }</div><div class="line">});</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -510,7 +489,7 @@ new Thread新建对象性能差
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -518,7 +497,7 @@ new Thread新建对象性能差
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -527,7 +506,7 @@ new Thread新建对象性能差
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
