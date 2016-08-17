@@ -4,8 +4,30 @@
 
     
   <url>
+    <loc>https://tedhacker.github.io/2016/08/17/Spring-Value%E7%9A%84%E7%94%A8%E6%B3%95/</loc>
+    <lastmod>2016-08-17T06:36:42.000Z</lastmod>
+    <data>
+        <display>
+        <title>Spring @Value的用法</title>
+        <pubTime>2016-08-17T06:17:56.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>Spring</tag>
+         
+         
+           
+             
+              <breadCrumb title="Spring" url="https://tedhacker.github.io/categories/Spring/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://tedhacker.github.io/2016/08/07/Spring%E5%88%87%E9%9D%A2%E7%AE%80%E8%AE%B0%E5%8F%8A%E5%BA%94%E7%94%A8/</loc>
-    <lastmod>2016-08-15T08:00:29.000Z</lastmod>
+    <lastmod>2016-08-17T01:24:15.000Z</lastmod>
     <data>
         <display>
         <title>Spring切面简记及应用</title>
