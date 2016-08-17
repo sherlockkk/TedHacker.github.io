@@ -4,6 +4,50 @@
 
     
   <url>
+    <loc>https://tedhacker.github.io/2016/08/17/Dozer%E4%BD%BF%E7%94%A8%E7%AE%80%E8%AE%B0/</loc>
+    <lastmod>2016-08-17T10:52:10.000Z</lastmod>
+    <data>
+        <display>
+        <title>Dozer使用简记</title>
+        <pubTime>2016-08-17T08:35:53.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>Dozer</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java" url="https://tedhacker.github.io/categories/Java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://tedhacker.github.io/2016/08/17/Spring-Value%E7%9A%84%E7%94%A8%E6%B3%95/</loc>
+    <lastmod>2016-08-17T07:54:07.000Z</lastmod>
+    <data>
+        <display>
+        <title>Spring @Value的用法</title>
+        <pubTime>2016-08-17T06:17:56.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>Spring</tag>
+         
+         
+           
+             
+              <breadCrumb title="Spring" url="https://tedhacker.github.io/categories/Spring/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://tedhacker.github.io/2016/08/07/%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E7%9A%84Java-Restful%E6%9C%8D%E5%8A%A1/</loc>
     <lastmod>2016-08-17T06:40:48.000Z</lastmod>
     <data>
@@ -21,28 +65,6 @@
            
              
               <breadCrumb title="Java" url="https://tedhacker.github.io/categories/Java/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://tedhacker.github.io/2016/08/17/Spring-Value%E7%9A%84%E7%94%A8%E6%B3%95/</loc>
-    <lastmod>2016-08-17T06:36:42.000Z</lastmod>
-    <data>
-        <display>
-        <title>Spring @Value的用法</title>
-        <pubTime>2016-08-17T06:17:56.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Spring</tag>
-         
-         
-           
-             
-              <breadCrumb title="Spring" url="https://tedhacker.github.io/categories/Spring/"/>
           
         </display>
     </data>
