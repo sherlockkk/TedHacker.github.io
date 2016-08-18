@@ -269,6 +269,178 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/18/FreeMarker使用简记/" itemprop="url">
+                  FreeMarker使用简记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-18T16:48:53+08:00" content="2016-08-18">
+              2016-08-18
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/FreeMarker/" itemprop="url" rel="index">
+                    <span itemprop="name">FreeMarker</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/18/FreeMarker使用简记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/18/FreeMarker使用简记/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/08/18/FreeMarker使用简记/" class="leancloud_visitors" data-flag-title="FreeMarker使用简记">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="&#x6982;&#x5FF5;"><a href="#&#x6982;&#x5FF5;" class="headerlink" title="&#x6982;&#x5FF5;"></a>&#x6982;&#x5FF5;</h3><p>FreeMarker&#x662F;&#x4E00;&#x6B3E;&#x6A21;&#x677F;&#x5F15;&#x64CE;&#xFF1A; &#x5373;&#x4E00;&#x79CD;&#x57FA;&#x4E8E;&#x6A21;&#x677F;&#x548C;&#x8981;&#x6539;&#x53D8;&#x7684;&#x6570;&#x636E;&#xFF0C;    &#x5E76;&#x7528;&#x6765;&#x751F;&#x6210;&#x8F93;&#x51FA;&#x6587;&#x672C;&#xFF08;HTML&#x7F51;&#x9875;&#x3001;&#x7535;&#x5B50;&#x90AE;&#x4EF6;&#x3001;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x3001;&#x6E90;&#x4EE3;&#x7801;&#x7B49;&#xFF09;&#x7684;&#x901A;&#x7528;&#x5DE5;&#x5177;&#x3002;</p>
+<h3 id="&#x57FA;&#x7840;&#x6307;&#x4EE4;"><a href="#&#x57FA;&#x7840;&#x6307;&#x4EE4;" class="headerlink" title="&#x57FA;&#x7840;&#x6307;&#x4EE4;"></a>&#x57FA;&#x7840;&#x6307;&#x4EE4;</h3><h5 id="If&#x6307;&#x4EE4;"><a href="#If&#x6307;&#x4EE4;" class="headerlink" title="If&#x6307;&#x4EE4;"></a>If&#x6307;&#x4EE4;</h5><p>if&#x6307;&#x4EE4;&#x53EF;&#x4EE5;&#x6761;&#x4EF6;&#x6027;&#x7684;&#x8DF3;&#x8FC7;&#x90E8;&#x5206;&#x6A21;&#x677F;&#x5757;</p>
+<p>&#x6761;&#x4EF6;&#x5305;&#x62EC;&#x76F8;&#x7B49;(==)&#xFF0C;&#x4E0D;&#x76F8;&#x7B49;(!=)&#xFF0C;&#x2026;&#x2026;</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;#if animals.python.price &lt; animals.elephant.price&gt;</div><div class="line">  Pythons are cheaper than elephants today.</div><div class="line">&lt;#elseif animals.elephant.price &lt; animals.python.price&gt;</div><div class="line">  Elephants are cheaper than pythons today.</div><div class="line">&lt;#else&gt;</div><div class="line">  Elephants and pythons cost the same today.</div><div class="line">&lt;/#if&gt;</div></pre></td></tr></table></figure>
+<h5 id="List&#x6307;&#x4EE4;"><a href="#List&#x6307;&#x4EE4;" class="headerlink" title="List&#x6307;&#x4EE4;"></a>List&#x6307;&#x4EE4;</h5><p>List&#x6307;&#x4EE4;&#x7684;&#x4E00;&#x822C;&#x5F62;&#x5F0F;&#x662F;&lt;#list <em>sequence</em> as <em>loopVariable</em>&gt;<em>repeatThis</em>&lt;/#list&gt;<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">#list</span> <span class="attr">misc.fruits</span> <span class="attr">as</span> <span class="attr">fruit</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>${fruit}</div><div class="line"><span class="tag">&lt;/<span class="name">#list</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>&#x6216;&#x8005;<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">#list</span> <span class="attr">misc.fruits</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">#items</span> <span class="attr">as</span> <span class="attr">fruit</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>${fruit}</div><div class="line">    <span class="tag">&lt;/<span class="name">#items</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">#list</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>List&#x8FD8;&#x53EF;&#x4EE5;&#x7ED3;&#x5408;&lt;#sep&gt;&#x548C;&lt;#else&gt;&#x6307;&#x4EE4;<br>&lt;#sep&gt;&lt;/#sep&gt;&#x8868;&#x793A;&#x8F93;&#x51FA;&#x4EE5;&#x5176;&#x5185;&#x5BB9;&#x5206;&#x5272;<br>&lt;#else&gt;&#x8868;&#x793A;&#x5F53;list&#x8F93;&#x51FA;&#x4E3A;&#x7A7A;&#x7684;&#x65F6;&#x5019;&#x7684;&#x8F93;&#x51FA;<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">#list</span> <span class="attr">misc.fruits</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Fruits:</div><div class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">#items</span> <span class="attr">as</span> <span class="attr">fruit</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>${fruit}<span class="tag">&lt;<span class="name">#sep</span>&gt;</span> and<span class="tag">&lt;/<span class="name">#sep</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">#items</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">#else</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>We have no fruits.</div><div class="line"><span class="tag">&lt;/<span class="name">#list</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h5 id="Include&#x6307;&#x4EE4;"><a href="#Include&#x6307;&#x4EE4;" class="headerlink" title="Include&#x6307;&#x4EE4;"></a>Include&#x6307;&#x4EE4;</h5><p>Include&#x6307;&#x4EE4;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5728;&#x6A21;&#x677F;&#x4E2D;&#x63D2;&#x5165;&#x5176;&#x4ED6;&#x6587;&#x4EF6;&#x5185;&#x5BB9;</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Test page<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Test page<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Blah blah...</div><div class="line">  <span class="tag">&lt;<span class="name">#include</span> &quot;/<span class="attr">copyright_footer.html</span>&quot;&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<h5 id="&#x5185;&#x5D4C;&#x6307;&#x4EE4;"><a href="#&#x5185;&#x5D4C;&#x6307;&#x4EE4;" class="headerlink" title="&#x5185;&#x5D4C;&#x6307;&#x4EE4;"></a>&#x5185;&#x5D4C;&#x6307;&#x4EE4;</h5><p>&#x4F8B;&#x5982;&#xFF1A;</p>
+<p>user?upper_case &#x63D0;&#x4F9B;user&#x7684;&#x5927;&#x5199;&#x7248;&#x672C;</p>
+<p>animal.name?cap_first &#x63D0;&#x4F9B;animal.name&#x7684;&#x9996;&#x5B57;&#x6BCD;&#x5927;&#x5199;&#x7248;&#x672C;</p>
+<p>user?length &#x63D0;&#x4F9B;user&#x7684;&#x5B57;&#x7B26;&#x6570;&#x76EE;</p>
+<p>animals?size &#x63D0;&#x4F9B;&#x96C6;&#x5408;animals&#x7684;&#x5143;&#x7D20;&#x4E2A;&#x6570;</p>
+<h5 id="&#x9ED8;&#x8BA4;&#x503C;"><a href="#&#x9ED8;&#x8BA4;&#x503C;" class="headerlink" title="&#x9ED8;&#x8BA4;&#x503C;"></a>&#x9ED8;&#x8BA4;&#x503C;</h5><p>!&#x540E;&#x9762;&#x4E3A;&#x7A7A;&#x7F3A;&#x65F6;&#x7684;&#x9ED8;&#x8BA4;&#x503C;</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Welcome ${user!&quot;visitor&quot;}!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>&#x7ED3;&#x5408;??&#xFF0C;&#x5F53;user&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6574;&#x4E2A;&#x6A21;&#x677F;&#x5757;&#x90FD;&#x4E0D;&#x4F1A;&#x663E;&#x793A;<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">#if</span> <span class="attr">user</span>??&gt;</span><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Welcome ${user}!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span><span class="tag">&lt;/<span class="name">#if</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h5 id="&#x8F93;&#x51FA;&#x683C;&#x5F0F;"><a href="#&#x8F93;&#x51FA;&#x683C;&#x5F0F;" class="headerlink" title="&#x8F93;&#x51FA;&#x683C;&#x5F0F;"></a>&#x8F93;&#x51FA;&#x683C;&#x5F0F;</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;#ftl output_format=&quot;HTML&quot;&gt;</div></pre></td></tr></table></figure>
+<p>&#x4FEE;&#x6539;HTML&#x4E3A;XML&#x5219;&#x8F93;&#x51FA;XML&#x6587;&#x4EF6;</p>
+<h3 id="&#x7C7B;&#x578B;"><a href="#&#x7C7B;&#x578B;" class="headerlink" title="&#x7C7B;&#x578B;"></a>&#x7C7B;&#x578B;</h3><ul>
+<li><a href="http://freemarker.org/docs/dgui_datamodel_types.html#dgui_datamodel_scalar" target="_blank" rel="external">Scalars:</a><ul>
+<li>String</li>
+<li>Number</li>
+<li>Boolean</li>
+<li>Date-like (date, time, or date-time)</li>
+</ul>
+</li>
+<li><a href="http://freemarker.org/docs/dgui_datamodel_types.html#dgui_datamodel_container" target="_blank" rel="external">Containers:</a><ul>
+<li>Hash</li>
+<li>Sequence</li>
+<li>Collection</li>
+</ul>
+</li>
+<li>Subroutines:<ul>
+<li><a href="http://freemarker.org/docs/dgui_datamodel_types.html#dgui_datamodel_method" target="_blank" rel="external">Methods and functions</a></li>
+<li><a href="http://freemarker.org/docs/dgui_datamodel_types.html#dgui_datamodel_userdefdir" target="_blank" rel="external">User-defined directives</a></li>
+</ul>
+</li>
+<li>Miscellaneous/seldom used:<ul>
+<li><a href="http://freemarker.org/docs/dgui_datamodel_types.html#dgui_datamodel_node" target="_blank" rel="external">Node</a></li>
+<li><a href="http://freemarker.org/docs/dgui_datamodel_types.html#dgui_datamodel_markupoutput" target="_blank" rel="external">Markup output</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/18/Spring-Framework-Reference-简记/" itemprop="url">
                   Spring Framework Reference 简记
                 </a>
@@ -1069,138 +1241,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/06/Spring-Task使用方法/" itemprop="url">
-                  Spring Task使用方法
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-06T14:19:01+08:00" content="2016-08-06">
-              2016-08-06
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Spring/" itemprop="url" rel="index">
-                    <span itemprop="name">Spring</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/06/Spring-Task使用方法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/06/Spring-Task使用方法/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/08/06/Spring-Task使用方法/" class="leancloud_visitors" data-flag-title="Spring Task使用方法">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Spring Task&#x662F;Spring&#x6846;&#x67B6;&#x81EA;&#x5E26;&#x7684;&#x4EFB;&#x52A1;&#x8C03;&#x5EA6;&#x5668;&#x3002;&#x63D0;&#x4F9B;annotation&#x6CE8;&#x89E3;&#x548C;XML&#x914D;&#x7F6E;&#x4E24;&#x79CD;&#x914D;&#x7F6E;&#x65B9;&#x5F0F;&#x3002;</p>
-<p>&#x672C;&#x6587;&#x7B80;&#x8BB0;XML&#x7684;&#x914D;&#x7F6E;&#x65B9;&#x5F0F;&#x3002;</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/06/Spring-Task使用方法/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1246,7 +1286,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1254,7 +1294,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1263,7 +1303,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
