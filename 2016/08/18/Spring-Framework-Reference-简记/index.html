@@ -93,7 +93,7 @@
 <meta property="og:description" content="&amp;#x5F15;&amp;#x8A00;Spring&amp;#x6846;&amp;#x67B6;&amp;#x5DF2;&amp;#x7ECF;&amp;#x662F;Java Web&amp;#x5F00;&amp;#x53D1;&amp;#x4E2D;&amp;#x5FC5;&amp;#x4E0D;&amp;#x53EF;&amp;#x5C11;&amp;#x7684;&amp;#x4E00;&amp;#x90E8;&amp;#x5206;&amp;#xFF0C;&amp;#x4F46;&amp;#x662F;&amp;#x81EA;&amp;#x5DF1;&amp;#">
 <meta property="og:image" content="https://tedhacker.github.io/2016/08/18/Spring-Framework-Reference-简记/OverviewOfTheSpringFramework.png">
 <meta property="og:image" content="https://tedhacker.github.io/2016/08/18/Spring-Framework-Reference-简记/TypicalFull-fledgedSpringWebApplication.png">
-<meta property="og:updated_time" content="2016-08-18T07:03:40.000Z">
+<meta property="og:updated_time" content="2016-08-18T07:13:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Framework Reference 简记">
 <meta name="twitter:description" content="&amp;#x5F15;&amp;#x8A00;Spring&amp;#x6846;&amp;#x67B6;&amp;#x5DF2;&amp;#x7ECF;&amp;#x662F;Java Web&amp;#x5F00;&amp;#x53D1;&amp;#x4E2D;&amp;#x5FC5;&amp;#x4E0D;&amp;#x53EF;&amp;#x5C11;&amp;#x7684;&amp;#x4E00;&amp;#x90E8;&amp;#x5206;&amp;#xFF0C;&amp;#x4F46;&amp;#x662F;&amp;#x81EA;&amp;#x5DF1;&amp;#">
@@ -375,11 +375,122 @@
 <p>6:<u>Test</u></p>
 <p><strong>spring-test</strong>&#x901A;&#x8FC7;JUnit&#x6216;TestNG&#x63D0;&#x4F9B;&#x5355;&#x5143;&#x548C;&#x96C6;&#x6210;&#x6D4B;&#x8BD5;&#x529F;&#x80FD;&#xFF0C;&#x8FD8;&#x63D0;&#x4F9B;mock&#x6D4B;&#x8BD5;&#x3002;</p>
 <p><img src="/2016/08/18/Spring-Framework-Reference-&#x7B80;&#x8BB0;/TypicalFull-fledgedSpringWebApplication.png" alt="Typical full-fledged Spring web application"></p>
-<p><u>Spring Framework Artifacts</u><br>| GroupId             |        ArtifactId        |                              Description |<br>| &#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;- | :&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;-: | &#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;: |<br>| org.springframework |        spring-aop        |                  Proxy-based AOP support |<br>| org.springframework |      spring-aspects      |                    AspectJ based aspects |<br>| org.springframework |       spring-beans       |           Beans support, includingGroovy |<br>| org.springframework |      spring-context      | Application context runtime,including scheduling andremoting abstractions |<br>| org.springframework |  spring-context-support  | Support classes for integratingcommon third-party librariesinto a Spring application context |<br>| org.springframework |       spring-core        | Core utilities, used by manyother Spring modules |<br>| org.springframework |    spring-expression     |         Spring Expression Language(SpEL) |<br>| org.springframework |   spring-instrument In   | Instrumentation agent for JVMbootstrapping |<br>| org.springframework | spring-instrument-tomcat |          Instrumentation agent forTomcat |<br>| org.springframework |       spring-jdbc        | JDBC support package,including DataSource setup andJDBC access support |<br>| org.springframework |        spring-jms        | JMS support package, includinghelper classes to send andreceive JMS messages |<br>| org.springframework |    spring-messaging S    | Support for messagingarchitectures and protocols |<br>| org.springframework |        spring-orm        | Object/Relational Mapping,including JPA and Hibernatesupport |<br>| org.springframework |        spring-oxm        |                       Object/XML Mapping |<br>| org.springframework |       spring-test        | Support for unit testing andintegration testing Springcomponents |<br>| org.springframework |        spring-tx         | Transaction infrastructure,including DAO support and JCAintegration |<br>| org.springframework |        spring-web        | Web support packages,including client and webremoting |<br>| org.springframework |      spring-webmvc       | REST Web Services andmodel-view-controllerimplementation for webapplications |<br>| org.springframework |  spring-webmvc-portlet   | MVC implementation to be usedin a Portlet environment |<br>| org.springframework |     spring-websocket     | WebSocket and SockJSimplementations, includingSTOMP support |</p>
+<p><u>Spring Framework Artifacts</u></p>
+<table>
+<thead>
+<tr>
+<th>GroupId</th>
+<th style="text-align:center">ArtifactId</th>
+<th style="text-align:right">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-aop</td>
+<td style="text-align:right">Proxy-based AOP support</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-aspects</td>
+<td style="text-align:right">AspectJ based aspects</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-beans</td>
+<td style="text-align:right">Beans support, includingGroovy</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-context</td>
+<td style="text-align:right">Application context runtime,including scheduling andremoting abstractions</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-context-support</td>
+<td style="text-align:right">Support classes for integratingcommon third-party librariesinto a Spring application context</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-core</td>
+<td style="text-align:right">Core utilities, used by manyother Spring modules</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-expression</td>
+<td style="text-align:right">Spring Expression Language(SpEL)</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-instrument In</td>
+<td style="text-align:right">Instrumentation agent for JVMbootstrapping</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-instrument-tomcat</td>
+<td style="text-align:right">Instrumentation agent forTomcat</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-jdbc</td>
+<td style="text-align:right">JDBC support package,including DataSource setup andJDBC access support</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-jms</td>
+<td style="text-align:right">JMS support package, includinghelper classes to send andreceive JMS messages</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-messaging S</td>
+<td style="text-align:right">Support for messagingarchitectures and protocols</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-orm</td>
+<td style="text-align:right">Object/Relational Mapping,including JPA and Hibernatesupport</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-oxm</td>
+<td style="text-align:right">Object/XML Mapping</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-test</td>
+<td style="text-align:right">Support for unit testing andintegration testing Springcomponents</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-tx</td>
+<td style="text-align:right">Transaction infrastructure,including DAO support and JCAintegration</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-web</td>
+<td style="text-align:right">Web support packages,including client and webremoting</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-webmvc</td>
+<td style="text-align:right">REST Web Services andmodel-view-controllerimplementation for webapplications</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-webmvc-portlet</td>
+<td style="text-align:right">MVC implementation to be usedin a Portlet environment</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-websocket</td>
+<td style="text-align:right">WebSocket and SockJSimplementations, includingSTOMP support</td>
+</tr>
+</tbody>
+</table>
 <p><u>&#x7269;&#x6599;&#x5355;</u></p>
 <p>&#x53EF;&#x4EE5;&#x5728;&#x4F9D;&#x8D56;&#x7BA1;&#x7406;&#x4E2D;&#x52A0;&#x5165;<strong>spring-framework-bom</strong>&#x6765;&#x786E;&#x4FDD;&#x6240;&#x6709;Spring&#x4F9D;&#x8D56;&#x4FDD;&#x6301;&#x5728;&#x540C;&#x4E00;&#x7248;&#x672C;&#x3002;</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependencyManagement</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-framework-bom<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.3.2.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">type</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">type</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>import<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependencyManagement</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>&#x901A;&#x8FC7;&#x5BFC;&#x5165;&#x4EE5;&#x4E0A;&#x914D;&#x7F6E;&#xFF0C;&#x5C31;&#x4E0D;&#x9700;&#x8981;&#x518D;&#x7279;&#x522B;&#x6307;&#x5B9A;\<version\>&#x5C5E;&#x6027;&#x3002;</version\></p>
+<p>&#x901A;&#x8FC7;&#x5BFC;&#x5165;&#x4EE5;&#x4E0A;&#x914D;&#x7F6E;&#xFF0C;&#x5C31;&#x4E0D;&#x9700;&#x8981;&#x518D;&#x7279;&#x522B;&#x6307;&#x5B9A;&#x7248;&#x672C;&#x5C5E;&#x6027;&#x3002;</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-context<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>&#x90E8;&#x5206;&#x65B0;&#x7279;&#x6027;&#xFF1A;</p>
 <p>@Order</p>
