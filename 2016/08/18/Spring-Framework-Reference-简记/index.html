@@ -94,7 +94,7 @@
 <meta property="og:image" content="https://tedhacker.github.io/2016/08/18/Spring-Framework-Reference-简记/OverviewOfTheSpringFramework.png">
 <meta property="og:image" content="https://tedhacker.github.io/2016/08/18/Spring-Framework-Reference-简记/TypicalFull-fledgedSpringWebApplication.png">
 <meta property="og:image" content="https://tedhacker.github.io/2016/08/18/Spring-Framework-Reference-简记/TheSpringIoCContainer.png">
-<meta property="og:updated_time" content="2016-08-19T06:38:41.000Z">
+<meta property="og:updated_time" content="2016-08-22T12:39:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Framework Reference 简记">
 <meta name="twitter:description" content="&amp;#x5F15;&amp;#x8A00;Spring&amp;#x6846;&amp;#x67B6;&amp;#x5DF2;&amp;#x7ECF;&amp;#x662F;Java Web&amp;#x5F00;&amp;#x53D1;&amp;#x4E2D;&amp;#x5FC5;&amp;#x4E0D;&amp;#x53EF;&amp;#x5C11;&amp;#x7684;&amp;#x4E00;&amp;#x90E8;&amp;#x5206;&amp;#xFF0C;&amp;#x4F46;&amp;#x662F;&amp;#x81EA;&amp;#x5DF1;&amp;#">
@@ -528,6 +528,73 @@
 <li>&#x6BCF;&#x4E2A;&#x5C5E;&#x6027;&#x6216;&#x8005;&#x6784;&#x6210;&#x53C2;&#x6570;&#x4F1A;&#x88AB;&#x8F6C;&#x6362;&#x6210;&#x5C5E;&#x6027;&#x6216;&#x8005;&#x6784;&#x6210;&#x53C2;&#x6570;&#x7684;&#x5B9E;&#x9645;&#x7C7B;&#x578B;&#x3002;</li>
 </ul>
 <p>&#x622A;&#x6B62;78/907&#x9875;</p>
+<h5 id="2016&#x5E74;8&#x6708;22&#x65E5;"><a href="#2016&#x5E74;8&#x6708;22&#x65E5;" class="headerlink" title="2016&#x5E74;8&#x6708;22&#x65E5;"></a>2016&#x5E74;8&#x6708;22&#x65E5;</h5><p><u>&#x81EA;&#x52A8;&#x6CE8;&#x5165;</u></p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>no</td>
+<td>(Default) No autowiring. Bean references must be defined via a ref element. Changing the default setting is not recommended for larger deployments, because specifying collaborators explicitly gives greater control and clarity. To some extent, it documents the structure of a system.</td>
+</tr>
+<tr>
+<td>byName</td>
+<td>Autowiring by property name. Spring looks for a bean with the same name as the property that needs to be autowired. For example, if a bean definition is set to autowire by name, and it contains a master property (that is, it has a setMaster(..) method), Spring looks for a bean definition named master, and uses it to set the property.</td>
+</tr>
+<tr>
+<td>byType</td>
+<td>Allows a property to be autowired if exactly one bean of the property type exists in the container. If more than one exists, a fatal exception is thrown, which indicates that you may not use byType autowiring for that bean. If there are no matching beans, nothing happens; the property is not set.</td>
+</tr>
+<tr>
+<td>constructor</td>
+<td>Analogous to byType, but applies to constructor arguments. If there is not exactly one bean of the constructor argument type in the container, a fatal error is raised.</td>
+</tr>
+</tbody>
+</table>
+<p><u>Bean&#x7684;&#x8303;&#x56F4;</u></p>
+<table>
+<thead>
+<tr>
+<th>Scope</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>singleton</td>
+<td>(Default) Scopes a single bean definition to asingle object instance per Spring IoC container.</td>
+</tr>
+<tr>
+<td>prototype</td>
+<td>Scopes a single bean definition to any number ofobject instances.</td>
+</tr>
+<tr>
+<td>request</td>
+<td>Scopes a single bean definition to the lifecycleof a single HTTP request; that is, each HTTPrequest has its own instance of a bean createdoff the back of a single bean definition. Onlyvalid in the context of a web-aware SpringApplicationContext.</td>
+</tr>
+<tr>
+<td>session</td>
+<td>Scopes a single bean definition to the lifecycle ofan HTTP Session. Only valid in the context of aweb-aware Spring ApplicationContext.</td>
+</tr>
+<tr>
+<td>globalSession</td>
+<td>Scopes a single bean definition to the lifecycleof a global HTTP Session. Typically onlyvalid when used in a Portlet context. Onlyvalid in the context of a web-aware SpringApplicationContext.</td>
+</tr>
+<tr>
+<td>application</td>
+<td>Scopes a single bean definition to the lifecycle ofa ServletContext. Only valid in the context ofa web-aware Spring ApplicationContext.</td>
+</tr>
+<tr>
+<td>websocket</td>
+<td>Scopes a single bean definition to the lifecycleof a WebSocket. Only valid in the context of aweb-aware Spring ApplicationContext.</td>
+</tr>
+</tbody>
+</table>
+<p>&#x622A;&#x6B62;96/907&#x9875;</p>
 
       
     </div>
@@ -710,7 +777,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2016年8月18日"><span class="nav-number">2.</span> <span class="nav-text">2016年8月18日</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2016年8月19日"><span class="nav-number">3.</span> <span class="nav-text">2016年8月19日</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2016年8月18日"><span class="nav-number">2.</span> <span class="nav-text">2016年8月18日</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2016年8月19日"><span class="nav-number">3.</span> <span class="nav-text">2016年8月19日</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2016年8月22日"><span class="nav-number">4.</span> <span class="nav-text">2016年8月22日</span></a></li></ol></div>
             
           </div>
         </section>

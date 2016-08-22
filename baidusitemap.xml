@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>https://tedhacker.github.io/2016/08/18/Spring-Framework-Reference-%E7%AE%80%E8%AE%B0/</loc>
+    <lastmod>2016-08-22T12:39:26.000Z</lastmod>
+    <data>
+        <display>
+        <title>Spring Framework Reference 简记</title>
+        <pubTime>2016-08-18T02:10:04.000Z</pubTime>
+        
+        <tag>Spring</tag>
+         
+         
+           
+             
+              <breadCrumb title="读书笔记" url="https://tedhacker.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://tedhacker.github.io/2016/08/18/FreeMarker%E4%BD%BF%E7%94%A8%E7%AE%80%E8%AE%B0/</loc>
     <lastmod>2016-08-21T09:09:25.000Z</lastmod>
     <data>
@@ -17,26 +37,6 @@
            
              
               <breadCrumb title="FreeMarker" url="https://tedhacker.github.io/categories/FreeMarker/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://tedhacker.github.io/2016/08/18/Spring-Framework-Reference-%E7%AE%80%E8%AE%B0/</loc>
-    <lastmod>2016-08-19T06:38:41.000Z</lastmod>
-    <data>
-        <display>
-        <title>Spring Framework Reference 简记</title>
-        <pubTime>2016-08-18T02:10:04.000Z</pubTime>
-        
-        <tag>Spring</tag>
-         
-         
-           
-             
-              <breadCrumb title="读书笔记" url="https://tedhacker.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
           
         </display>
     </data>
