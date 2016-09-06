@@ -10,5 +10,5 @@ Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
 
-Sitemap: https://tedhacker.github.io/sitemap.xml
-Sitemap: https://tedhacker.github.io/baidusitemap.xml
+Sitemap: http://tedhacker.top/sitemap.xml
+Sitemap: http://tedhacker.top/baidusitemap.xml
