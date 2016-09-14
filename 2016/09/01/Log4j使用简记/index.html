@@ -1,0 +1,1075 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="google-site-verification" content="y2Tsc6YVry1rlBn1ZDPfjMZCuFOWX_Tpchp1Yfd6nWk" />
+<meta name="baidu-site-verification" content="PzhPbVlRVc" />
+<meta name="msvalidate.01" content="235167E1B0EC050699199E94EBAED1F1" />
+<meta name="sogou_site_verification" content="xthq7jgXLg"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Java,Log4j," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Ted's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x65E5;&amp;#x5FD7;&amp;#x662F;&amp;#x8F6F;&amp;#x4EF6;&amp;#x5F00;&amp;#x53D1;&amp;#x4E2D;&amp;#x4E0D;&amp;#x53EF;&amp;#x7F3A;&amp;#x5C11;&amp;#x7684;&amp;#x90E8;&amp;#x5206;&amp;#xFF0C;log4j&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x529F;&amp;#x80FD;&amp;#x5F3A;&amp;#x5927;&amp;#x7684;&amp;#x">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Log4j使用简记">
+<meta property="og:url" content="http://tedhacker.top/2016/09/01/Log4j使用简记/index.html">
+<meta property="og:site_name" content="Ted's Blog">
+<meta property="og:description" content="&amp;#x65E5;&amp;#x5FD7;&amp;#x662F;&amp;#x8F6F;&amp;#x4EF6;&amp;#x5F00;&amp;#x53D1;&amp;#x4E2D;&amp;#x4E0D;&amp;#x53EF;&amp;#x7F3A;&amp;#x5C11;&amp;#x7684;&amp;#x90E8;&amp;#x5206;&amp;#xFF0C;log4j&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x529F;&amp;#x80FD;&amp;#x5F3A;&amp;#x5927;&amp;#x7684;&amp;#x">
+<meta property="og:image" content="http://tedhacker.top/2016/09/01/Log4j使用简记/ProjectStruct.png">
+<meta property="og:updated_time" content="2016-09-06T07:26:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Log4j使用简记">
+<meta name="twitter:description" content="&amp;#x65E5;&amp;#x5FD7;&amp;#x662F;&amp;#x8F6F;&amp;#x4EF6;&amp;#x5F00;&amp;#x53D1;&amp;#x4E2D;&amp;#x4E0D;&amp;#x53EF;&amp;#x7F3A;&amp;#x5C11;&amp;#x7684;&amp;#x90E8;&amp;#x5206;&amp;#xFF0C;log4j&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x529F;&amp;#x80FD;&amp;#x5F3A;&amp;#x5927;&amp;#x7684;&amp;#x">
+<meta name="twitter:image" content="http://tedhacker.top/2016/09/01/Log4j使用简记/ProjectStruct.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://tedhacker.top/2016/09/01/Log4j使用简记/"/>
+
+  <title> Log4j使用简记 | Ted's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Ted's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">水滴石穿</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Log4j使用简记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-01T15:27:48+08:00" content="2016-09-01">
+              2016-09-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/01/Log4j使用简记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/01/Log4j使用简记/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/09/01/Log4j使用简记/" class="leancloud_visitors" data-flag-title="Log4j使用简记">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>&#x65E5;&#x5FD7;&#x662F;&#x8F6F;&#x4EF6;&#x5F00;&#x53D1;&#x4E2D;&#x4E0D;&#x53EF;&#x7F3A;&#x5C11;&#x7684;&#x90E8;&#x5206;&#xFF0C;log4j&#x662F;&#x4E00;&#x4E2A;&#x529F;&#x80FD;&#x5F3A;&#x5927;&#x7684;&#x65E5;&#x5FD7;&#x7EC4;&#x4EF6;&#xFF0C;&#x63D0;&#x4F9B;&#x65B9;&#x4FBF;&#x7684;&#x65E5;&#x5FD7;&#x8BB0;&#x5F55;&#x529F;&#x80FD;&#x3002;</p>
+<p>&#x5B98;&#x7F51;&#xFF1A;<a href="http://logging.apache.org/" target="_blank" rel="external">http://logging.apache.org/</a></p>
+<p>Maven&#x5730;&#x5740;&#xFF1A;<a href="http://mvnrepository.com/artifact/log4j/log4j" target="_blank" rel="external">http://mvnrepository.com/artifact/log4j/log4j</a></p>
+<h3 id="&#x7B80;&#x5355;&#x5B9E;&#x4F8B;"><a href="#&#x7B80;&#x5355;&#x5B9E;&#x4F8B;" class="headerlink" title="&#x7B80;&#x5355;&#x5B9E;&#x4F8B;"></a>&#x7B80;&#x5355;&#x5B9E;&#x4F8B;</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BasicConfiguratorTest</span> </span>{</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Logger logger= Logger.getLogger(<span class="string">&quot;BasicConfiguratorTest&quot;</span>);</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>{</div><div class="line">        BasicConfigurator.configure();</div><div class="line">        logger.debug(<span class="string">&quot;Hello world.&quot;</span>);</div><div class="line">    }</div><div class="line">}</div><div class="line"><span class="comment">/*</span></div><div class="line">&#x8F93;&#x51FA;&#xFF1A;</div><div class="line">2016-09-01 17:37:40,140 - test - BasicConfiguratorTest DEBUG [main]  - Hello world.</div><div class="line">0 [main] DEBUG BasicConfiguratorTest  - Hello world.</div><div class="line">*/</div></pre></td></tr></table></figure>
+<p>&#x5982;&#x4E0A;&#x6240;&#x793A;&#xFF0C;&#x5728;&#x5E94;&#x7528;&#x4E2D;&#x4F7F;&#x7528;log4j&#x7684;&#x4E00;&#x822C;&#x6B65;&#x9AA4;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ol>
+<li><p>&#x914D;&#x7F6E;log4j&#x73AF;&#x5883;&#x3002;Log4j&#x63D0;&#x4F9B;&#x591A;&#x79CD;&#x914D;&#x7F6E;&#x65B9;&#x5F0F;&#xFF0C;&#x5176;&#x4E2D;BasicConfigurator.configure()&#x662F;&#x6700;&#x57FA;&#x7840;&#x7684;&#x4E00;&#x79CD;&#x3002;</p>
+</li>
+<li><p>&#x5BF9;&#x6BCF;&#x4E2A;&#x9700;&#x8981;&#x83B7;&#x53D6;&#x65E5;&#x5FD7;&#x7684;&#x7C7B;&#xFF0C;&#x901A;&#x8FC7;Logger.getLogger&#x65B9;&#x6CD5;&#x548C;&#x4F20;&#x9012;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;(&#x901A;&#x5E38;&#x662F;&#x8BE5;&#x7C7B;&#x7684;&#x5168;&#x540D;)&#x83B7;&#x53D6;&#x4E00;&#x4E2A;Logger&#x5BF9;&#x8C61;&#x3002;&#x8BE5;Logger&#x5BF9;&#x8C61;&#x901A;&#x8FC7;&#x88AB;&#x5B9A;&#x4E49;&#x4E3A;static final&#x3002;</p>
+<p>&#x5047;&#x5982;&#x5728;&#x5305;com.wombat&#x4E0B;&#x6709;&#x4E00;&#x4E2A;&#x7C7B;X&#xFF0C;&#x4EE5;&#x4E0B;&#x4E09;&#x79CD;&#x8868;&#x8FBE;&#x5F0F;&#x90FD;&#x662F;&#x53EF;&#x884C;&#x76F8;&#x540C;&#x7684;:</p>
+<p>Logger.getLogger(&#x201C;com.wombat.x&#x201D;);</p>
+<p>Logger.getLogger(X.class.getName());</p>
+<p>Logger.getLogger(X.class);</p>
+</li>
+</ol>
+<ol>
+<li>&#x4F7F;&#x7528;logger&#x5B9E;&#x4F8B;&#x7684;&#x8F93;&#x51FA;&#x65B9;&#x6CD5;&#xFF0C;&#x4F8B;&#x5982;debug()&#x3001;info()&#x3001;warn()&#x3001;error()&#x548C;fatal()&#x6216;&#x8005;&#x66F4;&#x901A;&#x7528;&#x7684;log()&#x65B9;&#x6CD5;&#xFF0C;&#x5728;&#x9009;&#x5B9A;&#x7684;&#x8BBE;&#x5907;&#x4E0A;&#x8F93;&#x51FA;&#x65E5;&#x5FD7;&#x4FE1;&#x606F;&#x3002;</li>
+</ol>
+<a id="more"></a>
+<h3 id="Log4j&#x67B6;&#x6784;"><a href="#Log4j&#x67B6;&#x6784;" class="headerlink" title="Log4j&#x67B6;&#x6784;"></a>Log4j&#x67B6;&#x6784;</h3><p>Log4j&#x5305;&#x542B;&#x4E09;&#x4E2A;&#x4E3B;&#x8981;&#x7684;&#x7EC4;&#x4EF6;&#xFF1A;loggers&#xFF0C;appenders&#x548C;layouts&#x3002;&#x8FD9;&#x4E09;&#x4E2A;&#x7EC4;&#x4EF6;&#x53EF;&#x4EE5;&#x63A7;&#x5236;&#x65E5;&#x5FD7;&#x7684;&#x7EA7;&#x522B;&#xFF0C;&#x65E5;&#x5FD7;&#x7684;&#x8F93;&#x51FA;&#x76EE;&#x7684;&#x5730;&#x4EE5;&#x53CA;&#x65E5;&#x5FD7;&#x8F93;&#x51FA;&#x7684;&#x683C;&#x5F0F;&#x3002;</p>
+<h4 id="Logger&#x5C42;&#x6B21;"><a href="#Logger&#x5C42;&#x6B21;" class="headerlink" title="Logger&#x5C42;&#x6B21;"></a>Logger&#x5C42;&#x6B21;</h4><p>Logger&#x5C42;&#x6B21;&#x9876;&#x7AEF;&#x7684;&#x662F;root logger&#xFF0C;&#x5B83;&#x6709;&#x4E09;&#x4E2A;&#x7279;&#x522B;&#x7684;&#x5730;&#x65B9;&#xFF1A;</p>
+<ol>
+<li>root logger&#x6C38;&#x8FDC;&#x5B58;&#x5728;</li>
+<li>&#x5B83;&#x7684;level&#x4E0D;&#x80FD;&#x8BBE;&#x4E3A;null</li>
+<li>&#x5B83;&#x4E0D;&#x80FD;&#x901A;&#x8FC7;&#x540D;&#x5B57;&#x83B7;&#x5F97;</li>
+</ol>
+<p>&#x4EE5;&#x4E0B;&#x662F;&#x5E38;&#x7528;&#x7684;Logger&#x7C7B;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> org.apache.log4j; </div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Logger</span> </span>{</div><div class="line">  <span class="comment">// Logger creation &amp; retrieval methods:</span></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Logger <span class="title">getRootLogger</span><span class="params">()</span></span>;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Logger <span class="title">getLogger</span><span class="params">(String name)</span></span>;</div><div class="line">  <span class="comment">// printing methods:</span></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">debug</span><span class="params">(Object message)</span></span>;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">info</span><span class="params">(Object message)</span></span>;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">warn</span><span class="params">(Object message)</span></span>;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">error</span><span class="params">(Object message)</span></span>;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fatal</span><span class="params">(Object message)</span></span>;</div><div class="line">  <span class="comment">// printing methods for exceptions:</span></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">debug</span><span class="params">(Object message, Throwable t)</span></span>;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">info</span><span class="params">(Object message, Throwable t)</span></span>;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">warn</span><span class="params">(Object message, Throwable t)</span></span>;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">error</span><span class="params">(Object message, Throwable t)</span></span>;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fatal</span><span class="params">(Object message, Throwable t)</span></span>;</div><div class="line">  <span class="comment">// generic printing method:</span></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">log</span><span class="params">(Level p, Object message)</span></span>;</div><div class="line">}</div></pre></td></tr></table></figure>
+<p>&#x4E00;&#x822C;&#x7684;logger(&#x975E;root logger)&#x53EF;&#x4EE5;&#x901A;&#x8FC7;getLogger(String name)&#x65B9;&#x6CD5;&#x83B7;&#x53D6;&#xFF0C;&#x5F53;&#x7B2C;&#x4E00;&#x6B21;&#x8C03;&#x7528;&#x8BE5;&#x65B9;&#x6CD5;&#x65F6;&#xFF0C;&#x5B83;&#x4F1A;&#x81EA;&#x52A8;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x3002;&#x6B64;&#x5916;&#xFF0C;&#x4E0D;&#x8BBA;&#x5728;&#x4EC0;&#x4E48;&#x5730;&#x65B9;&#xFF0C;&#x76F8;&#x540C;name&#x7684;&#x83B7;&#x53D6;&#x7ED3;&#x679C;&#x90FD;&#x662F;&#x540C;&#x4E00;&#x4E2A;Logger&#x5B9E;&#x4F8B;&#x3002;</p>
+<h4 id="Levels"><a href="#Levels" class="headerlink" title="Levels"></a>Levels</h4><p>Log4j&#x63D0;&#x4F9B;&#x4E86;&#x660E;&#x4E86;&#x7684;&#x65E5;&#x5FD7;&#x7B49;&#x7EA7;&#x4F9B;&#x7528;&#x6237;&#x4F7F;&#x7528;&#x3002;</p>
+<ul>
+<li>off&#xFF1A;</li>
+<li>fatal&#xFF1A;&#x5F88;&#x5C11;&#x4F7F;&#x7528;&#xFF0C;&#x4E00;&#x822C;&#x8868;&#x793A;&#x5F88;&#x4E25;&#x91CD;&#x7684;crash</li>
+<li>error&#xFF1A;&#x7ECF;&#x5E38;&#x4F7F;&#x7528;&#xFF0C;&#x4E00;&#x822C;&#x7528;&#x4E8E;&#x65E5;&#x5FD7;Java Exception</li>
+<li>warn&#xFF1A;&#x5E38;&#x7528;&#x4E8E;&#x63D0;&#x793A;&#x51FA;&#x73B0;&#x4E86;&#x5C0F;&#x95EE;&#x9898;&#xFF0C;&#x4F8B;&#x5982;&#x7F3A;&#x5C11;&#x53C2;&#x6570;</li>
+<li>info&#xFF1A;&#x5E38;&#x7528;&#x4E8E;&#x63D0;&#x793A;&#x5E94;&#x7528;&#x7684;&#x91CD;&#x8981;&#x7ED3;&#x70B9;</li>
+<li>debug&#xFF1A;</li>
+<li>all&#xFF1A;</li>
+</ul>
+<h4 id="Appenders"><a href="#Appenders" class="headerlink" title="Appenders"></a>Appenders</h4><p>Appender&#x51B3;&#x5B9A;&#x4E86;&#x65E5;&#x5FD7;&#x7684;&#x76EE;&#x7684;&#x5730;</p>
+<ul>
+<li>ConsoleAppender&#xFF08;&#x63A7;&#x5236;&#x53F0;&#xFF09;</li>
+<li>FileAppender&#xFF08;&#x6587;&#x4EF6;&#xFF09;</li>
+<li>DailyRollingFileAppender&#xFF08;&#x6BCF;&#x5929;&#x4EA7;&#x751F;&#x4E00;&#x4E2A;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#xFF09;</li>
+<li>RollingFileAppender&#xFF08;&#x6587;&#x4EF6;&#x5927;&#x5C0F;&#x5230;&#x8FBE;&#x6307;&#x5B9A;&#x5C3A;&#x5BF8;&#x65F6;&#x4EA7;&#x751F;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x6587;&#x4EF6;&#xFF09;</li>
+<li>WriteAppender&#xFF08;&#x5C06;&#x65E5;&#x5FD7;&#x4FE1;&#x606F;&#x4EE5;&#x6D41;&#x683C;&#x5F0F;&#x53D1;&#x9001;&#x5230;&#x4EFB;&#x610F;&#x6307;&#x5B9A;&#x7684;&#x5730;&#x65B9;&#xFF09;</li>
+<li>JDBCAppender&#xFF08;&#x5C06;&#x65E5;&#x5FD7;&#x4FE1;&#x606F;&#x4FDD;&#x5B58;&#x5230;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#xFF09;</li>
+</ul>
+<h4 id="Layouts"><a href="#Layouts" class="headerlink" title="Layouts"></a>Layouts</h4><p>Layout&#x51B3;&#x5B9A;&#x4E86;&#x65E5;&#x5FD7;&#x8F93;&#x51FA;&#x7684;&#x683C;&#x5F0F;</p>
+<ul>
+<li>%c &#x8F93;&#x51FA;&#x65E5;&#x5FD7;&#x4FE1;&#x606F;&#x6240;&#x5C5E;&#x7684;&#x7C7B;&#x7684;&#x5168;&#x540D;</li>
+<li>%d &#x8F93;&#x51FA;&#x65E5;&#x5FD7;&#x65F6;&#x95F4;&#x70B9;&#x7684;&#x65E5;&#x671F;&#x6216;&#x65F6;&#x95F4;&#xFF0C;&#x6BD4;&#x5982;&#xFF1A;%d{yyy-MM-dd HH:mm:ss }&#xFF0C;&#x8F93;&#x51FA;&#x7C7B;&#x4F3C;&#xFF1A;2016-9-3 10:55:59</li>
+<li>%f &#x8F93;&#x51FA;&#x65E5;&#x5FD7;&#x4FE1;&#x606F;&#x6240;&#x5C5E;&#x7684;&#x7C7B;&#x7684;&#x7C7B;&#x540D;</li>
+<li>%l &#x8F93;&#x51FA;&#x65E5;&#x5FD7;&#x4E8B;&#x4EF6;&#x7684;&#x53D1;&#x751F;&#x4F4D;&#x7F6E;&#xFF0C;&#x5373;&#x8F93;&#x51FA;&#x65E5;&#x5FD7;&#x4FE1;&#x606F;&#x7684;&#x8BED;&#x53E5;&#x5904;&#x4E8E;&#x5B83;&#x6240;&#x5C5E;&#x7C7B;&#x7684;&#x7B2C;&#x51E0;&#x884C;</li>
+<li>%m &#x8F93;&#x51FA;&#x4EE3;&#x7801;&#x4E2D;&#x6307;&#x5B9A;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x5982;log(error)&#x4E2D;&#x7684;error</li>
+<li>%n &#x8F93;&#x51FA;&#x4E00;&#x4E2A;&#x56DE;&#x8F66;&#x6362;&#x884C;&#x7B26;&#xFF0C;&#x5177;&#x4F53;&#x7B26;&#x5408;&#x5F53;&#x524D;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x56DE;&#x8F66;&#x6362;&#x884C;&#x7B26;</li>
+<li>%p &#x8F93;&#x51FA;&#x4F18;&#x5148;&#x7EA7;&#xFF0C;&#x5373;DEBUG&#xFF0C;INFO&#xFF0C;WARN&#xFF0C;ERROR&#xFF0C;FATAL</li>
+<li>%r &#x8F93;&#x51FA;&#x81EA;&#x5E94;&#x7528;&#x542F;&#x52A8;&#x5230;&#x8F93;&#x51FA;&#x8BE5;&#x65E5;&#x5FD7;&#x4FE1;&#x606F;&#x6240;&#x8017;&#x8D39;&#x7684;&#x6BEB;&#x79D2;&#x6570;</li>
+<li>%t &#x8F93;&#x51FA;&#x4EA7;&#x751F;&#x8BE5;&#x65E5;&#x5FD7;&#x4E8B;&#x4EF6;&#x7684;&#x7EBF;&#x7A0B;&#x540D;</li>
+<li>%x &#x8F93;&#x51FA;&#x548C;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x76F8;&#x5173;&#x7684;NDC(&#x5D4C;&#x5957;&#x8BCA;&#x65AD;&#x73AF;&#x5883;)</li>
+<li>%F &#x8F93;&#x51FA;&#x65E5;&#x5FD7;&#x6D88;&#x606F;&#x4EA7;&#x751F;&#x65F6;&#x6240;&#x5728;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x79F0;</li>
+<li>%% &#x8F93;&#x51FA;&#x4E00;&#x4E2A;&#x201C;%&#x201D;&#x5B57;&#x7B26;</li>
+</ul>
+<h3 id="Log4j&#x914D;&#x7F6E;"><a href="#Log4j&#x914D;&#x7F6E;" class="headerlink" title="Log4j&#x914D;&#x7F6E;"></a>Log4j&#x914D;&#x7F6E;</h3><ul>
+<li><p>Basic- Configurator.configure()&#xFF1A;&#x8BE5;&#x65B9;&#x6CD5;&#x8FDB;&#x884C;log4j&#x7684;&#x7B80;&#x5355;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x7ED9;root logger&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;ConsoleAppender&#xFF0C;&#x540C;&#x65F6;PatternLayout&#x8BBE;&#x7F6E;&#x4E3A;&#x201C;%-4r [%t] %-5p %c %x - %m%n&#x201C;&#xFF0C;&#x65E5;&#x5FD7;&#x7EA7;&#x522B;&#x8BBE;&#x7F6E;&#x4E3A;debug&#x3002;</p>
+</li>
+<li><p>PropertyConfigurator.configure ( String configFilename) &#xFF1A;&#x8BFB;&#x53D6;&#x4F7F;&#x7528;&#x952E;&#x503C;&#x5BF9;&#x7F16;&#x5199;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x3002;  </p>
+</li>
+<li>DOMConfigurator.configure ( String filename ) &#xFF1A;&#x8BFB;&#x53D6;XML&#x5F62;&#x5F0F;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x3002;</li>
+</ul>
+<h3 id="&#x5B9E;&#x4F8B;"><a href="#&#x5B9E;&#x4F8B;" class="headerlink" title="&#x5B9E;&#x4F8B;"></a>&#x5B9E;&#x4F8B;</h3><h4 id="&#x9879;&#x76EE;&#x7ED3;&#x6784;"><a href="#&#x9879;&#x76EE;&#x7ED3;&#x6784;" class="headerlink" title="&#x9879;&#x76EE;&#x7ED3;&#x6784;"></a>&#x9879;&#x76EE;&#x7ED3;&#x6784;</h4><p> <img src="/2016/09/01/Log4j&#x4F7F;&#x7528;&#x7B80;&#x8BB0;/ProjectStruct.png" alt="ProjectStruct"></p>
+<h4 id="&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;"><a href="#&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;" class="headerlink" title="&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;"></a>&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> org.apache.log4j.Logger;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>{</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Logger logger= Logger.getLogger(Test.class);</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>{</div><div class="line">        logger.debug(<span class="string">&quot;This is a debug message.&quot;</span>);</div><div class="line">        logger.info(<span class="string">&quot;This is a info message.&quot;</span>);</div><div class="line">        logger.error(<span class="string">&quot;This is a error message.&quot;</span>);</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
+<h4 id="Log4j&#x914D;&#x7F6E;-Properties&#x7248;"><a href="#Log4j&#x914D;&#x7F6E;-Properties&#x7248;" class="headerlink" title="Log4j&#x914D;&#x7F6E;(Properties&#x7248;)"></a>Log4j&#x914D;&#x7F6E;(Properties&#x7248;)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">log4j.rootLogger=debug,stdout,D,E</div><div class="line"></div><div class="line">log4j.appender.stdout=org.apache.log4j.ConsoleAppender</div><div class="line">log4j.appender.stdout.Target=System.out</div><div class="line">log4j.appender.stdout.layout=org.apache.log4j.PatternLayout</div><div class="line">log4j.appender.stdout.layout.ConversionPattern=[%-5p] %d{yyyy-MM-dd HH:mm:ss,SSS} method: %l%n%m%n</div><div class="line"></div><div class="line">log4j.appender.D=org.apache.log4j.DailyRollingFileAppender</div><div class="line">log4j.appender.D.File=logs/debug.log</div><div class="line">log4j.appender.D.Append=true</div><div class="line">log4j.appender.D.Threshold=DEBUG</div><div class="line">log4j.appender.D.layout=org.apache.log4j.PatternLayout</div><div class="line">log4j.appender.D.layout.ConversionPattern=%-d{yyyy-MM-dd HH:mm:ss} [%t:%r] - [%p] %m%n</div><div class="line"></div><div class="line">log4j.appender.E=org.apache.log4j.DailyRollingFileAppender</div><div class="line">log4j.appender.E.File=logs/error.log</div><div class="line">log4j.appender.E.Append=true</div><div class="line">log4j.appender.E.Threshold=ERROR</div><div class="line">log4j.appender.E.layout=org.apache.log4j.PatternLayout</div><div class="line">log4j.appender.E.layout.ConversionPattern=%-d{yyyy-MM-dd HH:mm:ss} [%t:%r] - [%p] %m%n</div></pre></td></tr></table></figure>
+<h4 id="Log4j&#x914D;&#x7F6E;-XML&#x7248;"><a href="#Log4j&#x914D;&#x7F6E;-XML&#x7248;" class="headerlink" title="Log4j&#x914D;&#x7F6E;(XML&#x7248;)"></a>Log4j&#x914D;&#x7F6E;(XML&#x7248;)</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</div><div class="line"><span class="meta">&lt;!DOCTYPE log4j:configuration SYSTEM &quot;log4j.dtd&quot;&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">log4j:configuration</span> <span class="attr">xmlns:log4j</span>=<span class="string">&apos;http://jakarta.apache.org/log4j/&apos;</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">appender</span> <span class="attr">name</span>=<span class="string">&quot;stdout&quot;</span> <span class="attr">class</span>=<span class="string">&quot;org.apache.log4j.ConsoleAppender&quot;</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">layout</span> <span class="attr">class</span>=<span class="string">&quot;org.apache.log4j.PatternLayout&quot;</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">&quot;ConversionPattern&quot;</span> <span class="attr">value</span>=<span class="string">&quot;%d - test - %c %p [%t] %x - %m%n&quot;</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">layout</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">appender</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">appender</span> <span class="attr">name</span>=<span class="string">&quot;D&quot;</span> <span class="attr">class</span>=<span class="string">&quot;org.apache.log4j.DailyRollingFileAppender&quot;</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">&quot;file&quot;</span> <span class="attr">value</span>=<span class="string">&quot;logs/debug.log&quot;</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">&quot;append&quot;</span> <span class="attr">value</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">&quot;threshold&quot;</span> <span class="attr">value</span>=<span class="string">&quot;debug&quot;</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">layout</span> <span class="attr">class</span>=<span class="string">&quot;org.apache.log4j.PatternLayout&quot;</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">&quot;ConversionPattern&quot;</span> <span class="attr">value</span>=<span class="string">&quot;%-d{yyyy-MM-dd HH:mm:ss} [%t:%r] - [%p] %m%n&quot;</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">layout</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">appender</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">appender</span> <span class="attr">name</span>=<span class="string">&quot;E&quot;</span> <span class="attr">class</span>=<span class="string">&quot;org.apache.log4j.DailyRollingFileAppender&quot;</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">&quot;file&quot;</span> <span class="attr">value</span>=<span class="string">&quot;logs/error.log&quot;</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">&quot;append&quot;</span> <span class="attr">value</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">&quot;threshold&quot;</span> <span class="attr">value</span>=<span class="string">&quot;error&quot;</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">layout</span> <span class="attr">class</span>=<span class="string">&quot;org.apache.log4j.PatternLayout&quot;</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">&quot;ConversionPattern&quot;</span> <span class="attr">value</span>=<span class="string">&quot;%-d{yyyy-MM-dd HH:mm:ss} [%t:%r] - [%p] %m%n&quot;</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">layout</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">appender</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">logger</span> <span class="attr">name</span>=<span class="string">&quot;e&quot;</span> <span class="attr">additivity</span>=<span class="string">&quot;true&quot;</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">level</span> <span class="attr">value</span>=<span class="string">&quot;error&quot;</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">appender-ref</span> <span class="attr">ref</span>=<span class="string">&quot;E&quot;</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">logger</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">logger</span> <span class="attr">name</span>=<span class="string">&quot;d&quot;</span> <span class="attr">additivity</span>=<span class="string">&quot;true&quot;</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">level</span> <span class="attr">value</span>=<span class="string">&quot;debug&quot;</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">appender-ref</span> <span class="attr">ref</span>=<span class="string">&quot;D&quot;</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">logger</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">root</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">level</span> <span class="attr">value</span>=<span class="string">&quot;debug&quot;</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">appender-ref</span> <span class="attr">ref</span>=<span class="string">&quot;stdout&quot;</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">appender-ref</span> <span class="attr">ref</span>=<span class="string">&quot;D&quot;</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">appender-ref</span> <span class="attr">ref</span>=<span class="string">&quot;E&quot;</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">root</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">log4j:configuration</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="Maven&#x914D;&#x7F6E;"><a href="#Maven&#x914D;&#x7F6E;" class="headerlink" title="Maven&#x914D;&#x7F6E;"></a>Maven&#x914D;&#x7F6E;</h4><p>&#x8FD0;&#x884C;log4j&#x9700;&#x8981;&#x5F15;&#x5165;log4j&#x4F9D;&#x8D56;&#x5305;</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>log4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>log4j<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.17<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="&#x6D4B;&#x8BD5;&#x7ED3;&#x679C;"><a href="#&#x6D4B;&#x8BD5;&#x7ED3;&#x679C;" class="headerlink" title="&#x6D4B;&#x8BD5;&#x7ED3;&#x679C;"></a>&#x6D4B;&#x8BD5;&#x7ED3;&#x679C;</h4><p>&#x63A7;&#x5236;&#x53F0;&#x8F93;&#x51FA;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">2016-09-03 23:10:32,311 - test - com.zju.Test DEBUG [main]  - This is a debug message.</div><div class="line">2016-09-03 23:10:32,312 - test - com.zju.Test INFO [main]  - This is a info message.</div><div class="line">2016-09-03 23:10:32,312 - test - com.zju.Test ERROR [main]  - This is a error message.</div></pre></td></tr></table></figure>
+<p>debug.log&#x8F93;&#x51FA;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">2016-09-03 23:10:32 [main:0] - [DEBUG] This is a debug message.</div><div class="line">2016-09-03 23:10:32 [main:1] - [INFO] This is a info message.</div><div class="line">2016-09-03 23:10:32 [main:1] - [ERROR] This is a error message.</div></pre></td></tr></table></figure>
+<p>error.log&#x8F93;&#x51FA;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">2016-09-03 23:10:32 [main:1] - [ERROR] This is a error message.</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag">#Java</a>
+          
+            <a href="/tags/Log4j/" rel="tag">#Log4j</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/24/Java-Web模板代码生成器的设计与实现/" rel="next" title="Java Web模板代码生成器的设计与实现">
+                <i class="fa fa-chevron-left"></i> Java Web模板代码生成器的设计与实现
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/13/《设计模式的艺术-软件开发人员内功修炼之道》简记/" rel="prev" title="《设计模式的艺术:软件开发人员内功修炼之道》简记">
+                《设计模式的艺术:软件开发人员内功修炼之道》简记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/09/01/Log4j使用简记/"
+           data-title="Log4j使用简记" data-url="http://tedhacker.top/2016/09/01/Log4j使用简记/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="TedHacker" />
+          <p class="site-author-name" itemprop="name">TedHacker</p>
+          <p class="site-description motion-element" itemprop="description">一步一步慢慢往上爬~ (ง •̀_•́)ง</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/TedHacker" target="_blank" title="Github" >
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.csdn.net/acm_Ted" target="_blank" title="CSDN" >
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  CSDN
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简单实例"><span class="nav-number">1.</span> <span class="nav-text">简单实例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Log4j架构"><span class="nav-number">2.</span> <span class="nav-text">Log4j架构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Logger层次"><span class="nav-number">2.1.</span> <span class="nav-text">Logger层次</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Levels"><span class="nav-number">2.2.</span> <span class="nav-text">Levels</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Appenders"><span class="nav-number">2.3.</span> <span class="nav-text">Appenders</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Layouts"><span class="nav-number">2.4.</span> <span class="nav-text">Layouts</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Log4j配置"><span class="nav-number">3.</span> <span class="nav-text">Log4j配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例"><span class="nav-number">4.</span> <span class="nav-text">实例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#项目结构"><span class="nav-number">4.1.</span> <span class="nav-text">项目结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试代码"><span class="nav-number">4.2.</span> <span class="nav-text">测试代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Log4j配置-Properties版"><span class="nav-number">4.3.</span> <span class="nav-text">Log4j配置(Properties版)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Log4j配置-XML版"><span class="nav-number">4.4.</span> <span class="nav-text">Log4j配置(XML版)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Maven配置"><span class="nav-number">4.5.</span> <span class="nav-text">Maven配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试结果"><span class="nav-number">4.6.</span> <span class="nav-text">测试结果</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">TedHacker</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io" rel="external nofollow">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+    <span class="site-pv">Total visited<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>times.</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"tedhacker"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("pTAH4gqlpIJiGEiOdiEPaubQ-gzGzoHsz", "mqmc64oerUohcXqxQxrDJwjt");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+</body>
+</html>
