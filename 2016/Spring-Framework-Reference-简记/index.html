@@ -1,0 +1,1242 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="google-site-verification" content="y2Tsc6YVry1rlBn1ZDPfjMZCuFOWX_Tpchp1Yfd6nWk" />
+<meta name="baidu-site-verification" content="PzhPbVlRVc" />
+<meta name="msvalidate.01" content="235167E1B0EC050699199E94EBAED1F1" />
+<meta name="sogou_site_verification" content="xthq7jgXLg"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Spring," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Ted's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x5F15;&amp;#x8A00;Spring&amp;#x6846;&amp;#x67B6;&amp;#x5DF2;&amp;#x7ECF;&amp;#x662F;Java Web&amp;#x5F00;&amp;#x53D1;&amp;#x4E2D;&amp;#x5FC5;&amp;#x4E0D;&amp;#x53EF;&amp;#x5C11;&amp;#x7684;&amp;#x4E00;&amp;#x90E8;&amp;#x5206;&amp;#xFF0C;&amp;#x4F46;&amp;#x662F;&amp;#x81EA;&amp;#x5DF1;&amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring Framework Reference 简记">
+<meta property="og:url" content="http://tedhacker.top/2016/Spring-Framework-Reference-简记/index.html">
+<meta property="og:site_name" content="Ted's Blog">
+<meta property="og:description" content="&amp;#x5F15;&amp;#x8A00;Spring&amp;#x6846;&amp;#x67B6;&amp;#x5DF2;&amp;#x7ECF;&amp;#x662F;Java Web&amp;#x5F00;&amp;#x53D1;&amp;#x4E2D;&amp;#x5FC5;&amp;#x4E0D;&amp;#x53EF;&amp;#x5C11;&amp;#x7684;&amp;#x4E00;&amp;#x90E8;&amp;#x5206;&amp;#xFF0C;&amp;#x4F46;&amp;#x662F;&amp;#x81EA;&amp;#x5DF1;&amp;#">
+<meta property="og:image" content="http://tedhacker.top/2016/Spring-Framework-Reference-简记/OverviewOfTheSpringFramework.png">
+<meta property="og:image" content="http://tedhacker.top/2016/Spring-Framework-Reference-简记/TypicalFull-fledgedSpringWebApplication.png">
+<meta property="og:image" content="http://tedhacker.top/2016/Spring-Framework-Reference-简记/TheSpringIoCContainer.png">
+<meta property="og:updated_time" content="2016-08-22T12:39:26.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spring Framework Reference 简记">
+<meta name="twitter:description" content="&amp;#x5F15;&amp;#x8A00;Spring&amp;#x6846;&amp;#x67B6;&amp;#x5DF2;&amp;#x7ECF;&amp;#x662F;Java Web&amp;#x5F00;&amp;#x53D1;&amp;#x4E2D;&amp;#x5FC5;&amp;#x4E0D;&amp;#x53EF;&amp;#x5C11;&amp;#x7684;&amp;#x4E00;&amp;#x90E8;&amp;#x5206;&amp;#xFF0C;&amp;#x4F46;&amp;#x662F;&amp;#x81EA;&amp;#x5DF1;&amp;#">
+<meta name="twitter:image" content="http://tedhacker.top/2016/Spring-Framework-Reference-简记/OverviewOfTheSpringFramework.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://tedhacker.top/2016/Spring-Framework-Reference-简记/"/>
+
+  <title> Spring Framework Reference 简记 | Ted's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Ted's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">水滴石穿</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Spring Framework Reference 简记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-18T10:10:04+08:00" content="2016-08-18">
+              2016-08-18
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/读书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">读书笔记</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/Spring-Framework-Reference-简记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/Spring-Framework-Reference-简记/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/Spring-Framework-Reference-简记/" class="leancloud_visitors" data-flag-title="Spring Framework Reference 简记">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h5 id="&#x5F15;&#x8A00;"><a href="#&#x5F15;&#x8A00;" class="headerlink" title="&#x5F15;&#x8A00;"></a>&#x5F15;&#x8A00;</h5><p>Spring&#x6846;&#x67B6;&#x5DF2;&#x7ECF;&#x662F;Java Web&#x5F00;&#x53D1;&#x4E2D;&#x5FC5;&#x4E0D;&#x53EF;&#x5C11;&#x7684;&#x4E00;&#x90E8;&#x5206;&#xFF0C;&#x4F46;&#x662F;&#x81EA;&#x5DF1;&#x5BF9;Spring&#x7684;&#x6A21;&#x5757;&#x3001;&#x914D;&#x7F6E;&#x3001;&#x89C4;&#x8303;&#x90FD;&#x4E00;&#x77E5;&#x534A;&#x89E3;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x5728;&#x9879;&#x76EE;&#x5F00;&#x53D1;&#x4E2D;&#x57CB;&#x4E0B;&#x4E86;&#x4E0D;&#x5C11;&#x9690;&#x60A3;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x4ECE;&#x5B98;&#x65B9;&#x6587;&#x6863;&#x5F00;&#x59CB;&#xFF0C;&#x5C3D;&#x529B;&#x53BB;&#x4E86;&#x89E3;&#x6574;&#x4E2A;Spring&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x6B64;&#x6587;&#x4F5C;&#x4E3A;&#x8BB0;&#x5F55;&#x4EE5;&#x53CA;&#x7763;&#x4FC3;&#x3002;</p>
+<p>&#x5B98;&#x65B9;&#x6587;&#x6863;&#x5730;&#x5740;&#xFF1A;<a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/pdf/spring-framework-reference.pdf" target="_blank" rel="external">http://docs.spring.io/spring/docs/current/spring-framework-reference/pdf/spring-framework-reference.pdf</a></p>
+<a id="more"></a>
+<h5 id="2016&#x5E74;8&#x6708;18&#x65E5;"><a href="#2016&#x5E74;8&#x6708;18&#x65E5;" class="headerlink" title="2016&#x5E74;8&#x6708;18&#x65E5;"></a>2016&#x5E74;8&#x6708;18&#x65E5;</h5><p><img src="/2016/Spring-Framework-Reference-&#x7B80;&#x8BB0;/OverviewOfTheSpringFramework.png" alt="Overview of the Spring Framework"></p>
+<p>1:<u>Core Container</u></p>
+<p><em>Core Container</em>&#x5305;&#x62EC;spring-core&#xFF0C;spring-beans&#xFF0C;spring-context&#xFF0C;spring-context-support&#x548C;spring-expressin(Spring Expression Language)&#x6A21;&#x5757;&#x3002;</p>
+<p><strong>spring-core</strong>&#x548C;<strong>spring-beans</strong>&#x63D0;&#x4F9B;&#x4E86;Spring&#x6846;&#x67B6;&#x7684;&#x57FA;&#x672C;&#x529F;&#x80FD;&#xFF0C;&#x5305;&#x62EC;&#x63A7;&#x5236;&#x53CD;&#x8F6C;(IoC)&#x548C;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;(DI)&#x3002;&#x5176;&#x4E2D;&#xFF0C;BeanFactory&#x662F;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;&#x4E45;&#x7ECF;&#x8003;&#x9A8C;&#x7684;&#x4E00;&#x79CD;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#x3002;</p>
+<p><strong>spring-context</strong>&#x662F;&#x5EFA;&#x7ACB;&#x5728;core&#x548C;beans&#x7684;&#x57FA;&#x7840;&#x4E4B;&#x4E0A;&#x7684;&#xFF0C;&#x63D0;&#x4F9B;&#x6846;&#x67B6;&#x98CE;&#x683C;&#x7684;&#x5BF9;&#x8C61;&#x8BBF;&#x95EE;&#x65B9;&#x5F0F;&#xFF0C;&#x7C7B;&#x4F3C;JNDI&#x6CE8;&#x518C;&#x3002;&#x5176;&#x4E2D;&#xFF0C;ApplicationContext&#x662F;context&#x6A21;&#x5757;&#x7684;&#x6838;&#x5FC3;&#x3002;<strong>spring-context-support</strong>&#x63D0;&#x4F9B;&#x96C6;&#x6210;&#x5E38;&#x7528;&#x7B2C;&#x4E09;&#x65B9;&#x7C7B;&#x5E93;&#x7684;&#x652F;&#x6301;&#xFF0C;&#x5305;&#x62EC;&#x7F13;&#x5B58;(EhCache,Guava,JCache)&#xFF0C;&#x90AE;&#x4EF6;(JavaMail)&#xFF0C;&#x4EFB;&#x52A1;&#x8C03;&#x5EA6;(CommonJ&#xFF0C;Quartz)&#x548C;&#x6A21;&#x677F;&#x5F15;&#x64CE;(FreeMarker,JasperReports,Velocity)&#x3002;</p>
+<p><strong>spring-expression</strong>&#x63D0;&#x4F9B;&#x4E86;Spring&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#x8BED;&#x8A00;(Expression Langugae)&#x3002;</p>
+<p>2:<u>AOP and Instrumentation</u></p>
+<p><strong>spring-aop</strong>&#x6A21;&#x5757;&#x63D0;&#x4F9B;&#x9762;&#x5411;&#x5207;&#x9762;&#x7F16;&#x7A0B;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x5141;&#x8BB8;&#x5B9A;&#x4E49;&#x65B9;&#x6CD5;&#x62E6;&#x622A;&#x5668;&#x548C;&#x5207;&#x70B9;&#x6765;&#x89E3;&#x8026;&#x4EE3;&#x7801;&#x3002;</p>
+<p><strong>spring-aspects</strong>&#x6A21;&#x5757;&#x63D0;&#x4F9B;AspectJ&#x7684;&#x96C6;&#x6210;&#x3002;</p>
+<p><strong>spring-instrument</strong>&#x6A21;&#x5757;&#x63D0;&#x4F9B;&#x5728;&#x7C7B;&#x4EEA;&#x5668;&#x652F;&#x6301;&#x548C;&#x7C7B;&#x52A0;&#x8F7D;&#x5668;&#x5B9E;&#x73B0;&#x3002;</p>
+<p>3:<u>Messaging</u></p>
+<p><strong>spring-messaging</strong>&#x6A21;&#x5757;&#x662F;Spring Framework 4&#x4E2D;&#x5F15;&#x5165;&#x7684;&#xFF0C;&#x63D0;&#x4F9B;&#x4E86;&#x57FA;&#x4E8E;&#x6D88;&#x606F;&#x5E94;&#x7528;&#x7684;&#x57FA;&#x7840;&#x529F;&#x80FD;&#xFF0C;&#x8FD8;&#x63D0;&#x4F9B;&#x4E86;&#x57FA;&#x4E8E;&#x6CE8;&#x89E3;&#x7684;&#x6D88;&#x606F;&#x6620;&#x5C04;&#x3002;</p>
+<p>4:<u>Data Access/Integration</u></p>
+<p>&#x6570;&#x636E;&#x8BBF;&#x95EE;&#x5C42;&#x5305;&#x62EC;JDBC&#xFF0C;ORM&#xFF0C;OXM&#xFF0C;JMS&#x548C;&#x4E8B;&#x52A1;&#x6A21;&#x5757;&#x3002;</p>
+<p><strong>spring-jdbc</strong></p>
+<p><strong>spring-tx</strong></p>
+<p><strong>spring-orm</strong></p>
+<p><strong>spring-oxm</strong></p>
+<p><strong>spring-kms</strong></p>
+<p>5:<u>Web</u></p>
+<p>Web&#x5C42;&#x662F;&#x7531;spring-web&#xFF0C;spring-webmvc&#xFF0C;spring-websocket&#x548C;spring-webmvc-portlet&#x6A21;&#x5757;&#x6784;&#x6210;&#x3002;</p>
+<p><strong>spring-web</strong>&#x6A21;&#x5757;&#x63D0;&#x4F9B;&#x57FA;&#x672C;&#x7684;&#x9762;&#x5411;Web&#x7684;&#x96C6;&#x6210;&#x7279;&#x6027;&#xFF0C;&#x5305;&#x62EC;&#x6587;&#x4EF6;&#x7EED;&#x4F20;&#x548C;IoC&#x5BB9;&#x5668;&#x7684;&#x521D;&#x59CB;&#x5316;&#x3002;&#x5B83;&#x8FD8;&#x5305;&#x542B;HTTP&#x5BA2;&#x6237;&#x7AEF;&#x548C;Web&#x76F8;&#x5173;&#x7684;Spring&#x8FDC;&#x7A0B;&#x652F;&#x6301;&#x3002;</p>
+<p><strong>spring-webmvc</strong>&#x6A21;&#x5757;&#x5305;&#x542B;&#x7F51;&#x7EDC;&#x5E94;&#x7528;&#x7684;MVC&#x548C;REST&#x5B9E;&#x73B0;&#x3002;</p>
+<p><strong>spring-webmvc-portlet</strong></p>
+<p>6:<u>Test</u></p>
+<p><strong>spring-test</strong>&#x901A;&#x8FC7;JUnit&#x6216;TestNG&#x63D0;&#x4F9B;&#x5355;&#x5143;&#x548C;&#x96C6;&#x6210;&#x6D4B;&#x8BD5;&#x529F;&#x80FD;&#xFF0C;&#x8FD8;&#x63D0;&#x4F9B;mock&#x6D4B;&#x8BD5;&#x3002;</p>
+<p><img src="/2016/Spring-Framework-Reference-&#x7B80;&#x8BB0;/TypicalFull-fledgedSpringWebApplication.png" alt="Typical full-fledged Spring web application"></p>
+<p><u>Spring Framework Artifacts</u></p>
+<table>
+<thead>
+<tr>
+<th>GroupId</th>
+<th style="text-align:center">ArtifactId</th>
+<th style="text-align:right">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-aop</td>
+<td style="text-align:right">Proxy-based AOP support</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-aspects</td>
+<td style="text-align:right">AspectJ based aspects</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-beans</td>
+<td style="text-align:right">Beans support, includingGroovy</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-context</td>
+<td style="text-align:right">Application context runtime,including scheduling andremoting abstractions</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-context-support</td>
+<td style="text-align:right">Support classes for integratingcommon third-party librariesinto a Spring application context</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-core</td>
+<td style="text-align:right">Core utilities, used by manyother Spring modules</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-expression</td>
+<td style="text-align:right">Spring Expression Language(SpEL)</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-instrument In</td>
+<td style="text-align:right">Instrumentation agent for JVMbootstrapping</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-instrument-tomcat</td>
+<td style="text-align:right">Instrumentation agent forTomcat</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-jdbc</td>
+<td style="text-align:right">JDBC support package,including DataSource setup andJDBC access support</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-jms</td>
+<td style="text-align:right">JMS support package, includinghelper classes to send andreceive JMS messages</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-messaging S</td>
+<td style="text-align:right">Support for messagingarchitectures and protocols</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-orm</td>
+<td style="text-align:right">Object/Relational Mapping,including JPA and Hibernatesupport</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-oxm</td>
+<td style="text-align:right">Object/XML Mapping</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-test</td>
+<td style="text-align:right">Support for unit testing andintegration testing Springcomponents</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-tx</td>
+<td style="text-align:right">Transaction infrastructure,including DAO support and JCAintegration</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-web</td>
+<td style="text-align:right">Web support packages,including client and webremoting</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-webmvc</td>
+<td style="text-align:right">REST Web Services andmodel-view-controllerimplementation for webapplications</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-webmvc-portlet</td>
+<td style="text-align:right">MVC implementation to be usedin a Portlet environment</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-websocket</td>
+<td style="text-align:right">WebSocket and SockJSimplementations, includingSTOMP support</td>
+</tr>
+</tbody>
+</table>
+<p><u>&#x7269;&#x6599;&#x5355;</u></p>
+<p>&#x53EF;&#x4EE5;&#x5728;&#x4F9D;&#x8D56;&#x7BA1;&#x7406;&#x4E2D;&#x52A0;&#x5165;<strong>spring-framework-bom</strong>&#x6765;&#x786E;&#x4FDD;&#x6240;&#x6709;Spring&#x4F9D;&#x8D56;&#x4FDD;&#x6301;&#x5728;&#x540C;&#x4E00;&#x7248;&#x672C;&#x3002;</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependencyManagement</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-framework-bom<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.3.2.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">type</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">type</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>import<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependencyManagement</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>&#x901A;&#x8FC7;&#x5BFC;&#x5165;&#x4EE5;&#x4E0A;&#x914D;&#x7F6E;&#xFF0C;&#x5C31;&#x4E0D;&#x9700;&#x8981;&#x518D;&#x7279;&#x522B;&#x6307;&#x5B9A;&#x7248;&#x672C;&#x5C5E;&#x6027;&#x3002;</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-context<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>&#x90E8;&#x5206;&#x65B0;&#x7279;&#x6027;&#xFF1A;</p>
+<p>@Order</p>
+<p>@Lazy</p>
+<p>@Description</p>
+<p>@RestController</p>
+<p>&#x622A;&#x6B62;65/907&#x9875;</p>
+<h5 id="2016&#x5E74;8&#x6708;19&#x65E5;"><a href="#2016&#x5E74;8&#x6708;19&#x65E5;" class="headerlink" title="2016&#x5E74;8&#x6708;19&#x65E5;"></a>2016&#x5E74;8&#x6708;19&#x65E5;</h5><p><u>The IoC container</u></p>
+<p><strong>org.springframework.beans</strong>&#x548C;<strong>org.springframework.context</strong>&#x662F;Spring&#x6846;&#x67B6;IoC&#x5BB9;&#x5668;&#x7684;&#x57FA;&#x7840;&#x3002;BeanFactory&#x63A5;&#x53E3;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x5148;&#x8FDB;&#x7684;&#x914D;&#x7F6E;&#x673A;&#x5236;&#x6765;&#x7BA1;&#x7406;&#x4EFB;&#x4F55;&#x7C7B;&#x578B;&#x7684;&#x5BF9;&#x8C61;&#x3002;ApplicationContext&#x662F;BeanFactory&#x7684;&#x4E00;&#x4E2A;&#x5B50;&#x63A5;&#x53E3;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x66F4;&#x65B9;&#x4FBF;&#x96C6;&#x6210;Spring&#x7684;AOP&#x7279;&#x6027;&#x3002;</p>
+<p>&#x5728;Spring&#x4E2D;&#xFF0C;&#x7528;&#x4E8E;&#x6784;&#x6210;&#x5E94;&#x7528;&#x9AA8;&#x67B6;&#x540C;&#x65F6;&#x88AB;Spring IoC&#x5BB9;&#x5668;&#x7BA1;&#x7406;&#x7684;&#x5BF9;&#x8C61;&#x6210;&#x4E3A;beans&#x3002;</p>
+<p><u>Container overview</u></p>
+<p>&#x63A5;&#x53E3;org.springframework.context.ApplicationContext&#x4EE3;&#x8868;Spring IoC&#x5BB9;&#x5668;&#xFF0C;&#x540C;&#x65F6;&#x8D1F;&#x8D23;&#x5B9E;&#x4F8B;&#x5316;&#x3001;&#x914D;&#x7F6E;&#x548C;&#x7EC4;&#x88C5;&#x76F8;&#x5173;beans&#x3002;&#x5BB9;&#x5668;&#x901A;&#x8FC7;&#x914D;&#x7F6E;&#x4FE1;&#x606F;&#x6765;&#x5F97;&#x77E5;&#x54EA;&#x4E9B;&#x5BF9;&#x8C61;&#x9700;&#x8981;&#x5B9E;&#x4F8B;&#x5316;&#x3001;&#x914D;&#x7F6E;&#x6216;&#x7EC4;&#x88C5;&#x7684;&#x6307;&#x4EE4;&#x3002;&#x914D;&#x7F6E;&#x4FE1;&#x606F;&#x53EF;&#x4EE5;&#x662F;XML&#x3001;Java&#x6CE8;&#x89E3;&#x6216;&#x8005;Java&#x4EE3;&#x7801;&#x3002;</p>
+<p>Spring&#x63D0;&#x4F9B;ApplicationContext&#x63A5;&#x53E3;&#x7684;&#x591A;&#x79CD;&#x5F00;&#x7BB1;&#x5373;&#x7528;(out-of-the-box)&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#x3002;&#x5728;&#x5355;&#x5E94;&#x7528;&#x4E2D;&#xFF0C;&#x4E00;&#x822C;&#x662F;&#x521B;&#x5EFA;<em>ClassPathXmlApplicationContext</em>&#x6216;&#x8005;<em>FileSystemXmlApplicationContext</em>&#x5B9E;&#x4F8B;&#x3002;</p>
+<p><img src="/2016/Spring-Framework-Reference-&#x7B80;&#x8BB0;/TheSpringIoCContainer.png" alt="TheSpringIoCContainer"></p>
+<p>&#x4E0B;&#x9762;&#x662F;&#x57FA;&#x4E8E;XML&#x914D;&#x7F6E;&#x4FE1;&#x606F;&#x7684;&#x4F8B;&#x5B50;&#xFF1A;<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.springframework.org/schema/beans&quot;</span></span></div><div class="line"> <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></div><div class="line"> <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://www.springframework.org/schema/beans</span></div><div class="line"> http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;</div><div class="line"> <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;...&quot;</span> <span class="attr">class</span>=<span class="string">&quot;...&quot;</span>&gt;</span></div><div class="line"> <span class="comment">&lt;!-- collaborators and configuration for this bean go here --&gt;</span></div><div class="line"> <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;...&quot;</span> <span class="attr">class</span>=<span class="string">&quot;...&quot;</span>&gt;</span></div><div class="line"> <span class="comment">&lt;!-- collaborators and configuration for this bean go here --&gt;</span></div><div class="line"> <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line"> <span class="comment">&lt;!-- more bean definitions go here --&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>id&#x662F;bean&#x7684;&#x552F;&#x4E00;&#x6807;&#x8BC6;&#xFF0C;class&#x662F;&#x5B9A;&#x4E49;bean&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x8981;&#x6C42;&#x5305;&#x542B;&#x5305;&#x8DEF;&#x5F84;&#x3002;</p>
+<p>&#x5BB9;&#x5668;&#x521D;&#x59CB;&#x5316;&#x4EE3;&#x7801;&#xFF1A;</p>
+<p><code>ApplicationContext context =</code><br> <code>new ClassPathXmlApplicationContext(new String[] {&quot;services.xml&quot;, &quot;daos.xml&quot;});</code></p>
+<p>&#x591A;&#x6587;&#x4EF6;XML&#x914D;&#x7F6E;</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">beans</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">import</span> <span class="attr">resource</span>=<span class="string">&quot;services.xml&quot;</span>/&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">import</span> <span class="attr">resource</span>=<span class="string">&quot;resources/messageSource.xml&quot;</span>/&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">import</span> <span class="attr">resource</span>=<span class="string">&quot;/resources/themeSource.xml&quot;</span>/&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;bean1&quot;</span> <span class="attr">class</span>=<span class="string">&quot;...&quot;</span>/&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;bean2&quot;</span> <span class="attr">class</span>=<span class="string">&quot;...&quot;</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>&#x4F7F;&#x7528;&#x5BB9;&#x5668;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// create and configure beans</span></div><div class="line">ApplicationContext context =</div><div class="line"> <span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="keyword">new</span> String[] {<span class="string">&quot;services.xml&quot;</span>, <span class="string">&quot;daos.xml&quot;</span>});</div><div class="line"><span class="comment">// retrieve configured instance</span></div><div class="line">PetStoreService service = context.getBean(<span class="string">&quot;petStore&quot;</span>, PetStoreService.class);</div><div class="line"><span class="comment">// use configured instance</span></div><div class="line">List&lt;String&gt; userList = service.getUsernameList();</div></pre></td></tr></table></figure>
+<p><u>Bean overview</u></p>
+<p>&#x901A;&#x8FC7;&#x9759;&#x6001;&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x5B9E;&#x4F8B;&#x5316;bean</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;clientService&quot;</span> <span class="attr">class</span>=<span class="string">&quot;examples.ClientService&quot;</span> <span class="attr">factory-method</span>=<span class="string">&quot;createInstance&quot;</span>/&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ClientService</span> </span>{</div><div class="line"> <span class="keyword">private</span> <span class="keyword">static</span> ClientService clientService = <span class="keyword">new</span> ClientService();</div><div class="line"> <span class="function"><span class="keyword">private</span> <span class="title">ClientService</span><span class="params">()</span> </span>{}</div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ClientService <span class="title">createInstance</span><span class="params">()</span> </span>{</div><div class="line"> <span class="keyword">return</span> clientService;</div><div class="line"> }</div><div class="line">}</div></pre></td></tr></table></figure>
+<p><u>Dependencies</u></p>
+<p>&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x6709;&#x4E24;&#x79CD;&#x4E3B;&#x8981;&#x65B9;&#x5F0F;&#xFF1A;&#x57FA;&#x4E8E;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x7684;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;(constructor-based DI)&#xFF0C;&#x57FA;&#x4E8E;Setter&#x65B9;&#x6CD5;&#x7684;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;(setter-based DI)&#x3002;</p>
+<p>&#x4F9D;&#x8D56;&#x89E3;&#x51B3;&#x8FC7;&#x7A0B;&#xFF1A;</p>
+<ul>
+<li>&#x521B;&#x5EFA;ApplicationContext&#xFF0C;&#x540C;&#x65F6;&#x901A;&#x8FC7;&#x914D;&#x7F6E;&#x4FE1;&#x606F;&#x63CF;&#x8FF0;&#x6240;&#x6709;bean&#xFF0C;&#x914D;&#x7F6E;&#x4FE1;&#x606F;&#x53EF;&#x4EE5;&#x662F;XML&#x3001;Java&#x4EE3;&#x7801;&#x6216;&#x8005;&#x6CE8;&#x89E3;&#x3002;</li>
+<li>&#x5BF9;&#x4E8E;&#x6BCF;&#x4E00;&#x4E2A;bean&#xFF0C;&#x5B83;&#x7684;&#x4F9D;&#x8D56;&#x88AB;&#x8868;&#x793A;&#x6210;&#x5C5E;&#x6027;&#x3001;&#x6784;&#x9020;&#x53C2;&#x6570;&#x6216;&#x8005;&#x9759;&#x6001;&#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x6570;&#x3002;&#x5F53;bean&#x88AB;&#x5B9E;&#x9645;&#x521B;&#x5EFA;&#x7684;&#x65F6;&#x5019;&#x63D0;&#x4F9B;&#x7ED9;bean&#x3002;</li>
+<li>&#x6BCF;&#x4E2A;&#x5C5E;&#x6027;&#x6216;&#x8005;&#x6784;&#x9020;&#x53C2;&#x6570;&#x662F;&#x4E00;&#x4E2A;&#x786E;&#x5B9A;&#x7684;&#x503C;&#x6216;&#x8005;&#x5BB9;&#x5668;&#x4E2D;&#x5176;&#x4ED6;bean&#x7684;&#x5F15;&#x7528;&#x3002;</li>
+<li>&#x6BCF;&#x4E2A;&#x5C5E;&#x6027;&#x6216;&#x8005;&#x6784;&#x6210;&#x53C2;&#x6570;&#x4F1A;&#x88AB;&#x8F6C;&#x6362;&#x6210;&#x5C5E;&#x6027;&#x6216;&#x8005;&#x6784;&#x6210;&#x53C2;&#x6570;&#x7684;&#x5B9E;&#x9645;&#x7C7B;&#x578B;&#x3002;</li>
+</ul>
+<p>&#x622A;&#x6B62;78/907&#x9875;</p>
+<h5 id="2016&#x5E74;8&#x6708;22&#x65E5;"><a href="#2016&#x5E74;8&#x6708;22&#x65E5;" class="headerlink" title="2016&#x5E74;8&#x6708;22&#x65E5;"></a>2016&#x5E74;8&#x6708;22&#x65E5;</h5><p><u>&#x81EA;&#x52A8;&#x6CE8;&#x5165;</u></p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>no</td>
+<td>(Default) No autowiring. Bean references must be defined via a ref element. Changing the default setting is not recommended for larger deployments, because specifying collaborators explicitly gives greater control and clarity. To some extent, it documents the structure of a system.</td>
+</tr>
+<tr>
+<td>byName</td>
+<td>Autowiring by property name. Spring looks for a bean with the same name as the property that needs to be autowired. For example, if a bean definition is set to autowire by name, and it contains a master property (that is, it has a setMaster(..) method), Spring looks for a bean definition named master, and uses it to set the property.</td>
+</tr>
+<tr>
+<td>byType</td>
+<td>Allows a property to be autowired if exactly one bean of the property type exists in the container. If more than one exists, a fatal exception is thrown, which indicates that you may not use byType autowiring for that bean. If there are no matching beans, nothing happens; the property is not set.</td>
+</tr>
+<tr>
+<td>constructor</td>
+<td>Analogous to byType, but applies to constructor arguments. If there is not exactly one bean of the constructor argument type in the container, a fatal error is raised.</td>
+</tr>
+</tbody>
+</table>
+<p><u>Bean&#x7684;&#x8303;&#x56F4;</u></p>
+<table>
+<thead>
+<tr>
+<th>Scope</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>singleton</td>
+<td>(Default) Scopes a single bean definition to asingle object instance per Spring IoC container.</td>
+</tr>
+<tr>
+<td>prototype</td>
+<td>Scopes a single bean definition to any number ofobject instances.</td>
+</tr>
+<tr>
+<td>request</td>
+<td>Scopes a single bean definition to the lifecycleof a single HTTP request; that is, each HTTPrequest has its own instance of a bean createdoff the back of a single bean definition. Onlyvalid in the context of a web-aware SpringApplicationContext.</td>
+</tr>
+<tr>
+<td>session</td>
+<td>Scopes a single bean definition to the lifecycle ofan HTTP Session. Only valid in the context of aweb-aware Spring ApplicationContext.</td>
+</tr>
+<tr>
+<td>globalSession</td>
+<td>Scopes a single bean definition to the lifecycleof a global HTTP Session. Typically onlyvalid when used in a Portlet context. Onlyvalid in the context of a web-aware SpringApplicationContext.</td>
+</tr>
+<tr>
+<td>application</td>
+<td>Scopes a single bean definition to the lifecycle ofa ServletContext. Only valid in the context ofa web-aware Spring ApplicationContext.</td>
+</tr>
+<tr>
+<td>websocket</td>
+<td>Scopes a single bean definition to the lifecycleof a WebSocket. Only valid in the context of aweb-aware Spring ApplicationContext.</td>
+</tr>
+</tbody>
+</table>
+<p>&#x622A;&#x6B62;96/907&#x9875;</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Spring/" rel="tag">#Spring</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/Dozer使用简记/" rel="next" title="Dozer使用简记">
+                <i class="fa fa-chevron-left"></i> Dozer使用简记
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/FreeMarker使用简记/" rel="prev" title="FreeMarker使用简记">
+                FreeMarker使用简记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/Spring-Framework-Reference-简记/"
+           data-title="Spring Framework Reference 简记" data-url="http://tedhacker.top/2016/Spring-Framework-Reference-简记/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="TedHacker" />
+          <p class="site-author-name" itemprop="name">TedHacker</p>
+          <p class="site-description motion-element" itemprop="description">一步一步慢慢往上爬~ (ง •̀_•́)ง</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/TedHacker" target="_blank" title="Github" >
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.csdn.net/acm_Ted" target="_blank" title="CSDN" >
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  CSDN
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2016年8月18日"><span class="nav-number">2.</span> <span class="nav-text">2016年8月18日</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2016年8月19日"><span class="nav-number">3.</span> <span class="nav-text">2016年8月19日</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2016年8月22日"><span class="nav-number">4.</span> <span class="nav-text">2016年8月22日</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">TedHacker</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io" rel="external nofollow">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+    <span class="site-pv">Total visited<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>times.</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"tedhacker"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("pTAH4gqlpIJiGEiOdiEPaubQ-gzGzoHsz", "mqmc64oerUohcXqxQxrDJwjt");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+</body>
+</html>
