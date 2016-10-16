@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tedhacker.top/"/>
-  <updated>2016-10-16T14:18:54.000Z</updated>
+  <updated>2016-10-16T15:04:08.000Z</updated>
   <id>http://tedhacker.top/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://tedhacker.top/2016/10/15/Bootstrap%E5%9F%BA%E7%A1%80/"/>
     <id>http://tedhacker.top/2016/10/15/Bootstrap基础/</id>
     <published>2016-10-15T08:27:56.000Z</published>
-    <updated>2016-10-16T14:18:54.000Z</updated>
+    <updated>2016-10-16T15:04:08.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="Bootstrap&#x7B80;&#x4ECB;"><a href="#Bootstrap&#x7B80;&#x4ECB;" class="headerlink" title="Bootstrap&#x7B80;&#x4ECB;"></a>Bootstrap&#x7B80;&#x4ECB;</h3><p>Bootstrap&#x662F;&#x4E00;&#x5957;&#x6613;&#x7528;&#x3001;&#x4F18;&#x96C5;&#x3001;&#x7075;&#x6D3B;&#x3001;&#x53EF;&#x6269;&#x5C55;&#x7684;&#x524D;&#x7AEF;&#x5DE5;&#x5177;&#x96C6;&#x3002;</p>
 <ul>
@@ -60,7 +60,8 @@
 <h4 id="&#x4EE3;&#x7801;"><a href="#&#x4EE3;&#x7801;" class="headerlink" title="&#x4EE3;&#x7801;"></a>&#x4EE3;&#x7801;</h4><p>&lt;code&gt;&#xFF1A;&#x4E00;&#x822C;&#x662F;&#x9488;&#x5BF9;&#x4E8E;&#x5355;&#x4E2A;&#x5355;&#x8BCD;&#x6216;&#x5355;&#x4E2A;&#x53E5;&#x5B50;&#x7684;&#x4EE3;&#x7801;</p>
 <p>&lt;pre&gt;&#xFF1A;&#x4E00;&#x822C;&#x662F;&#x9488;&#x5BF9;&#x4E8E;&#x591A;&#x884C;&#x4EE3;&#x7801;&#xFF08;&#x4E5F;&#x5C31;&#x662F;&#x6210;&#x5757;&#x7684;&#x4EE3;&#x7801;&#xFF09;</p>
 <p>&lt;kbd&gt;&#xFF1A;&#x4E00;&#x822C;&#x662F;&#x8868;&#x793A;&#x7528;&#x6237;&#x8981;&#x901A;&#x8FC7;&#x952E;&#x76D8;&#x8F93;&#x5165;&#x7684;&#x5185;&#x5BB9;</p>
-<p>ps&#xFF1A;&#x4E0D;&#x7BA1;&#x4F7F;&#x7528;&#x54EA;&#x79CD;&#x4EE3;&#x7801;&#x98CE;&#x683C;&#xFF0C;&#x5728;&#x4EE3;&#x7801;&#x4E2D;&#x78B0;&#x5230;&#x5C0F;&#x4E8E;&#x53F7;&#xFF08;&lt;&#xFF09;&#x8981;&#x4F7F;&#x7528;&#x786C;&#x7F16;&#x7801;&#x201C;<code>&amp;lt;</code>&#x201D;&#x6765;&#x66FF;&#x4EE3;&#xFF0C;&#x5927;&#x4E8E;&#x53F7;(&gt;)&#x4F7F;&#x7528;&#x201C;<code>&amp;gt;</code>&#x201D;&#x6765;&#x66FF;&#x4EE3;&#x3002;</p>
+<p>ps&#xFF1A;&#x4E0D;&#x7BA1;&#x4F7F;&#x7528;&#x54EA;&#x79CD;&#x4EE3;&#x7801;&#x98CE;&#x683C;&#xFF0C;&#x5728;&#x4EE3;&#x7801;&#x4E2D;&#x78B0;&#x5230;&#x5C0F;&#x4E8E;&#x53F7;&#xFF08;&lt;&#xFF09;&#x8981;&#x4F7F;&#x7528;&#x786C;&#x7F16;&#x7801;&#x201C;<code>&lt;</code>&#x201D;&#x6765;&#x66FF;&#x4EE3;&#xFF0C;&#x5927;&#x4E8E;&#x53F7;(&gt;)&#x4F7F;&#x7528;&#x201C;<code>&gt;</code>&#x201D;&#x6765;&#x66FF;&#x4EE3;&#x3002;</p>
+<p>&#x5728;&lt;pre&gt;&#x4E0A;&#x6DFB;&#x52A0;&#x7C7B;&#x540D;&#x201D;.pre-scrolable&#x201D;&#xFF0C;&#x53EF;&#x4EE5;&#x63A7;&#x5236;&#x4EE3;&#x7801;&#x5757;&#x533A;&#x57DF;&#x6700;&#x5927;&#x9AD8;&#x5EA6;&#x4E3A;340px&#xFF0C;&#x4E00;&#x65E6;&#x8D85;&#x51FA;&#x8FD9;&#x4E2A;&#x9AD8;&#x5EA6;&#xFF0C;&#x5C31;&#x4F1A;&#x5728;Y&#x8F74;&#x51FA;&#x73B0;&#x6EDA;&#x52A8;&#x6761;&#x3002;</p>
 ]]></content>
     
     <summary type="html">
