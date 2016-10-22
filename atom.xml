@@ -960,7 +960,7 @@
     <link href="http://tedhacker.top/2016/08/07/%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E7%9A%84Java-Restful%E6%9C%8D%E5%8A%A1/"/>
     <id>http://tedhacker.top/2016/08/07/构建基本的Java-Restful服务/</id>
     <published>2016-08-07T10:30:06.000Z</published>
-    <updated>2016-10-22T02:14:06.000Z</updated>
+    <updated>2016-10-22T02:24:30.000Z</updated>
     
     <content type="html"><![CDATA[<p>&#x672C;&#x6587;&#x7B80;&#x8BB0;&#x901A;&#x8FC7;Maven&#x6784;&#x5EFA;Java Restful&#x670D;&#x52A1;&#x7684;&#x8FC7;&#x7A0B;&#x3002;</p>
 <h5 id="Maven&#x547D;&#x4EE4;&#x6784;&#x5EFA;&#x9879;&#x76EE;"><a href="#Maven&#x547D;&#x4EE4;&#x6784;&#x5EFA;&#x9879;&#x76EE;" class="headerlink" title="Maven&#x547D;&#x4EE4;&#x6784;&#x5EFA;&#x9879;&#x76EE;"></a>Maven&#x547D;&#x4EE4;&#x6784;&#x5EFA;&#x9879;&#x76EE;</h5><p><code>mvn archetype:generate -DgroupId=com.aspect -DartifactId=SpringAspectJTest -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false -DarchetypeCatalog=internal</code></p>
@@ -990,8 +990,6 @@
     
     
       <category term="Java" scheme="http://tedhacker.top/tags/Java/"/>
-    
-      <category term="REST" scheme="http://tedhacker.top/tags/REST/"/>
     
       <category term="Maven" scheme="http://tedhacker.top/tags/Maven/"/>
     
