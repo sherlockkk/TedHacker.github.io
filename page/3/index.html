@@ -286,6 +286,143 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/06/Mybatis中-和-的坑/" itemprop="url">
+                  Mybatis中#和$的坑
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-06T15:22:38+08:00" content="2016-08-06">
+              2016-08-06
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Mybatis/" itemprop="url" rel="index">
+                    <span itemprop="name">Mybatis</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/06/Mybatis中-和-的坑/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/06/Mybatis中-和-的坑/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/08/06/Mybatis中-和-的坑/" class="leancloud_visitors" data-flag-title="Mybatis中#和$的坑">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>&#x6700;&#x8FD1;&#x5728;&#x9879;&#x76EE;&#x4E2D;&#x9047;&#x5230;&#x4E00;&#x4E2A;&#x573A;&#x666F;&#xFF1A;&#x4F9D;&#x636E;&#x4E0D;&#x540C;&#x7684;&#x8BF7;&#x6C42;&#x53C2;&#x6570;&#xFF0C;&#x5C06;&#x6570;&#x636E;&#x5E93;&#x7684;&#x6570;&#x636E;&#x6309;&#x4E0D;&#x540C;&#x7684;&#x6570;&#x636E;&#x5217;&#x8FDB;&#x884C;&#x6392;&#x5E8F;&#x63D0;&#x53D6;&#x3002;</p>
+<p>Mapper&#x6587;&#x4EF6;&#x622A;&#x53D6;&#x5982;&#x4E0B;&#xFF1A;</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;querySellGoodsOrderById&quot;</span> <span class="attr">resultMap</span>=<span class="string">&quot;BaseResultMap&quot;</span>&gt;</span></div><div class="line">  select id, title, description, like_count, view_count, upload_time</div><div class="line">  from goods</div><div class="line">  where status=0</div><div class="line">  <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">&quot;idList!=null&quot;</span>&gt;</span></div><div class="line">    and id in</div><div class="line">    <span class="tag">&lt;<span class="name">foreach</span> <span class="attr">item</span>=<span class="string">&quot;item&quot;</span> <span class="attr">index</span>=<span class="string">&quot;index&quot;</span> <span class="attr">collection</span>=<span class="string">&quot;idList&quot;</span></span></div><div class="line">             <span class="attr">open</span>=<span class="string">&quot;(&quot;</span> <span class="attr">separator</span>=<span class="string">&quot;,&quot;</span> <span class="attr">close</span>=<span class="string">&quot;)&quot;</span>&gt;</div><div class="line">      #{item}</div><div class="line">    <span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">if</span>&gt;</span></div><div class="line">  order by #{order}</div><div class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>&#x63A5;&#x53E3;&#x5B9A;&#x4E49;&#xFF1A;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function">List&lt;GoodsInfo&gt; <span class="title">querySellGoodsOrderById</span><span class="params">(@Param(<span class="string">&quot;idList&quot;</span>)</span> List idList,</span></div><div class="line">                                        @<span class="title">Param</span><span class="params">(<span class="string">&quot;order&quot;</span>)</span> String order);</div></pre></td></tr></table></figure>
+<p>&#x4F46;&#x662F;&#x5728;&#x6D4B;&#x8BD5;&#x4E2D;&#xFF0C;&#x4EE3;&#x7801;&#x53C2;&#x6570;order&#x65E0;&#x8BBA;&#x53D6;&#x2019;like_count&#x2019;&#x3001;&#x2019;view_count&#x2019;&#x6216;&#x2019;upload_time&#x2019;&#x65B9;&#x6CD5;&#x6267;&#x884C;&#x7ED3;&#x679C;&#x90FD;&#x662F;&#x4FDD;&#x6301;&#x540C;&#x4E00;&#x79CD;&#x987A;&#x5E8F;&#x3002;</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/06/Mybatis中-和-的坑/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/06/Spring-Task使用方法/" itemprop="url">
                   Spring Task使用方法
                 </a>
@@ -860,7 +997,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-count">19</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -877,7 +1014,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tedhacker.top/"/>
-  <updated>2016-11-03T09:25:16.000Z</updated>
+  <updated>2016-11-08T12:03:23.000Z</updated>
   <id>http://tedhacker.top/</id>
   
   <author>
@@ -14,6 +14,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java生成验证码简记</title>
+    <link href="http://tedhacker.top/2016/11/07/Java%E7%94%9F%E6%88%90%E9%AA%8C%E8%AF%81%E7%A0%81%E7%AE%80%E8%AE%B0/"/>
+    <id>http://tedhacker.top/2016/11/07/Java生成验证码简记/</id>
+    <published>2016-11-07T03:31:40.000Z</published>
+    <updated>2016-11-08T12:03:23.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="&#x9A8C;&#x8BC1;&#x7801;&#x5B9A;&#x4E49;"><a href="#&#x9A8C;&#x8BC1;&#x7801;&#x5B9A;&#x4E49;" class="headerlink" title="&#x9A8C;&#x8BC1;&#x7801;&#x5B9A;&#x4E49;"></a>&#x9A8C;&#x8BC1;&#x7801;&#x5B9A;&#x4E49;</h3><p>&#x9A8C;&#x8BC1;&#x7801;(captcha)&#xFF1A;&#x662F;&#x4E00;&#x79CD;&#x533A;&#x5206;&#x7528;&#x6237;&#x662F;&#x8BA1;&#x7B97;&#x673A;&#x8FD8;&#x662F;&#x4EBA;&#x7684;&#x516C;&#x5171;&#x5168;&#x81EA;&#x52A8;&#x7A0B;&#x5E8F;&#x3002;</p>
+<p>&#x4F5C;&#x7528;&#xFF1A;&#x53EF;&#x4EE5;&#x9632;&#x6B62;&#x6076;&#x610F;&#x7834;&#x89E3;&#x5BC6;&#x7801;&#x3001;&#x5237;&#x7968;&#x3001;&#x704C;&#x6C34;&#xFF0C;&#x6709;&#x6548;&#x9632;&#x6B62;&#x5BF9;&#x67D0;&#x4E00;&#x4E2A;&#x7279;&#x5B9A;&#x6CE8;&#x518C;&#x7528;&#x6237;&#x7528;&#x7279;&#x5B9A;&#x7A0B;&#x5E8F;&#x8FDB;&#x884C;&#x66B4;&#x529B;&#x7834;&#x89E3;&#x7684;&#x767B;&#x5F55;&#x5C1D;&#x8BD5;&#x3002;</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;&amp;#x9A8C;&amp;#x8BC1;&amp;#x7801;&amp;#x5B9A;&amp;#x4E49;&quot;&gt;&lt;a href=&quot;#&amp;#x9A8C;&amp;#x8BC1;&amp;#x7801;&amp;#x5B9A;&amp;#x4E49;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x9A8C;&amp;#x8
+    
+    </summary>
+    
+      <category term="Java" scheme="http://tedhacker.top/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="http://tedhacker.top/tags/Java/"/>
+    
+      <category term="验证码" scheme="http://tedhacker.top/tags/%E9%AA%8C%E8%AF%81%E7%A0%81/"/>
+    
+  </entry>
   
   <entry>
     <title>统一建模语言(UML)基础</title>
