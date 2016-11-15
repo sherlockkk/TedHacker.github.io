@@ -288,6 +288,153 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/15/Mac下安装HBase步骤详解/" itemprop="url">
+                  Mac下安装HBase步骤详解
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-15T15:49:09+08:00" content="2016-11-15">
+              2016-11-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/HBase/" itemprop="url" rel="index">
+                    <span itemprop="name">HBase</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/15/Mac下安装HBase步骤详解/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/15/Mac下安装HBase步骤详解/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/11/15/Mac下安装HBase步骤详解/" class="leancloud_visitors" data-flag-title="Mac下安装HBase步骤详解">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="HBase&#x662F;&#x4EC0;&#x4E48;"><a href="#HBase&#x662F;&#x4EC0;&#x4E48;" class="headerlink" title="HBase&#x662F;&#x4EC0;&#x4E48;"></a>HBase&#x662F;&#x4EC0;&#x4E48;</h3><p>HBase&#x662F;&#x4E00;&#x4E2A;&#x5206;&#x5E03;&#x5F0F;&#x7684;&#x3001;&#x9762;&#x5411;&#x5217;&#x7684;&#x5F00;&#x6E90;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x8BE5;&#x6280;&#x672F;&#x6765;&#x6E90;&#x4E8E; Fay Chang &#x6240;&#x64B0;&#x5199;&#x7684;Google&#x8BBA;&#x6587;&#x201C;Bigtable&#xFF1A;&#x4E00;&#x4E2A;&#x7ED3;&#x6784;&#x5316;&#x6570;&#x636E;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x5B58;&#x50A8;&#x7CFB;&#x7EDF;&#x201D;&#x3002;&#x5C31;&#x50CF;Bigtable&#x5229;&#x7528;&#x4E86;Google&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#xFF08;File System&#xFF09;&#x6240;&#x63D0;&#x4F9B;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x6570;&#x636E;&#x5B58;&#x50A8;&#x4E00;&#x6837;&#xFF0C;HBase&#x5728;Hadoop&#x4E4B;&#x4E0A;&#x63D0;&#x4F9B;&#x4E86;&#x7C7B;&#x4F3C;&#x4E8E;Bigtable&#x7684;&#x80FD;&#x529B;&#x3002;HBase&#x662F;Apache&#x7684;Hadoop&#x9879;&#x76EE;&#x7684;&#x5B50;&#x9879;&#x76EE;&#x3002;HBase&#x4E0D;&#x540C;&#x4E8E;&#x4E00;&#x822C;&#x7684;&#x5173;&#x7CFB;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x5B83;&#x662F;&#x4E00;&#x4E2A;&#x9002;&#x5408;&#x4E8E;&#x975E;&#x7ED3;&#x6784;&#x5316;&#x6570;&#x636E;&#x5B58;&#x50A8;&#x7684;&#x6570;&#x636E;&#x5E93;&#x3002;&#x53E6;&#x4E00;&#x4E2A;&#x4E0D;&#x540C;&#x7684;&#x662F;HBase&#x57FA;&#x4E8E;&#x5217;&#x7684;&#x800C;&#x4E0D;&#x662F;&#x57FA;&#x4E8E;&#x884C;&#x7684;&#x6A21;&#x5F0F;&#x3002;</p>
+<p>&#x5B98;&#x65B9;&#x4E3B;&#x9875;&#xFF1A;<a href="http://hbase.apache.org/" target="_blank" rel="external">http://hbase.apache.org/</a></p>
+<h3 id="HBase&#x5B89;&#x88C5;"><a href="#HBase&#x5B89;&#x88C5;" class="headerlink" title="HBase&#x5B89;&#x88C5;"></a>HBase&#x5B89;&#x88C5;</h3><h4 id="&#x5B89;&#x88C5;&#x547D;&#x4EE4;"><a href="#&#x5B89;&#x88C5;&#x547D;&#x4EE4;" class="headerlink" title="&#x5B89;&#x88C5;&#x547D;&#x4EE4;"></a>&#x5B89;&#x88C5;&#x547D;&#x4EE4;</h4><p>&#x7EC8;&#x7AEF;&#x4E2D;&#x8F93;&#x5165;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install hbase</div></pre></td></tr></table></figure>
+<p>hbase&#x6587;&#x4EF6;&#x5B89;&#x88C5;&#x5728;<code>/usr/local/Cellar/hbase</code>&#x4E0B;&#x9762;&#xFF0C;&#x6587;&#x4EF6;&#x540D;&#x6839;&#x636E;&#x5B89;&#x88C5;&#x7248;&#x672C;&#x4E0D;&#x540C;&#x800C;&#x4E0D;&#x540C;&#x3002;</p>
+<h4 id="&#x914D;&#x7F6E;HBase"><a href="#&#x914D;&#x7F6E;HBase" class="headerlink" title="&#x914D;&#x7F6E;HBase"></a>&#x914D;&#x7F6E;HBase</h4><p>&#x6253;&#x5F00;<code>conf/hbase-env.sh</code>&#x914D;&#x7F6E;JAVA_HOME</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># The java implementation to use.  Java 1.7+ required.</div><div class="line">export JAVA_HOME=&quot;/Library/Java/JavaVirtualMachines/jdk1.7.0_80.jdk/Contents/Home&quot;</div></pre></td></tr></table></figure>
+<p>&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5DE5;&#x5177;&#x547D;&#x4EE4;/usr/libexec/java_home&#x6765;&#x5B9A;&#x4F4D;JAVA_HOME&#xFF1A;</p>
+<blockquote>
+<p>./java_home -V</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Matching Java Virtual Machines (2):</div><div class="line">    1.8.0_60, x86_64:	&quot;Java SE 8&quot;	/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home</div><div class="line">    1.7.0_80, x86_64:	&quot;Java SE 7&quot;	/Library/Java/JavaVirtualMachines/jdk1.7.0_80.jdk/Contents/Home</div></pre></td></tr></table></figure>
+<p>&#x6253;&#x5F00;<code>conf/hbase-site.xml</code>&#x914D;&#x7F6E;HBase&#x6587;&#x4EF6;&#x5B58;&#x50A8;&#x76EE;&#x5F55;</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.rootdir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">    //&#x914D;&#x7F6E;HBase&#x5B58;&#x50A8;&#x6587;&#x4EF6;&#x7684;&#x76EE;&#x5F55;</div><div class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>file:///Users/guest/Documents/hbase<span class="tag">&lt;/<span class="name">value</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.zookeeper.property.dataDir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">    //&#x914D;&#x7F6E;HBase&#x5B58;&#x50A8;&#x5185;&#x5EFA;zookeeper&#x6587;&#x4EF6;&#x7684;&#x76EE;&#x5F55;</div><div class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>/Users/guest/Documents/zookeeper<span class="tag">&lt;/<span class="name">value</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="&#x8FD0;&#x884C;HBase"><a href="#&#x8FD0;&#x884C;HBase" class="headerlink" title="&#x8FD0;&#x884C;HBase"></a>&#x8FD0;&#x884C;HBase</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./start-hbase.sh</div></pre></td></tr></table></figure>
+<h4 id="&#x9A8C;&#x8BC1;&#x662F;&#x5426;&#x5B89;&#x88C5;&#x6210;&#x529F;"><a href="#&#x9A8C;&#x8BC1;&#x662F;&#x5426;&#x5B89;&#x88C5;&#x6210;&#x529F;" class="headerlink" title="&#x9A8C;&#x8BC1;&#x662F;&#x5426;&#x5B89;&#x88C5;&#x6210;&#x529F;"></a>&#x9A8C;&#x8BC1;&#x662F;&#x5426;&#x5B89;&#x88C5;&#x6210;&#x529F;</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jps</div></pre></td></tr></table></figure>
+<p>&#x51FA;&#x73B0;HMaster&#x8BF4;&#x660E;&#x5B89;&#x88C5;&#x8FD0;&#x884C;&#x6210;&#x529F;&#x3002;</p>
+<h4 id="&#x542F;&#x52A8;HBase-Shell"><a href="#&#x542F;&#x52A8;HBase-Shell" class="headerlink" title="&#x542F;&#x52A8;HBase Shell"></a>&#x542F;&#x52A8;HBase Shell</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./hbase shell</div></pre></td></tr></table></figure>
+<h4 id="&#x505C;&#x6B62;HBase"><a href="#&#x505C;&#x6B62;HBase" class="headerlink" title="&#x505C;&#x6B62;HBase"></a>&#x505C;&#x6B62;HBase</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./stop-hbase.sh</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/11/14/Kaptcha和JCaptcha使用介绍/" itemprop="url">
                   Kaptcha和JCaptcha使用介绍
                 </a>
@@ -1181,144 +1328,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/14/Node-js-Guide/" itemprop="url">
-                  Node.js Guide
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-14T15:38:39+08:00" content="2016-09-14">
-              2016-09-14
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Node-js/" itemprop="url" rel="index">
-                    <span itemprop="name">Node.js</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/14/Node-js-Guide/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/14/Node-js-Guide/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/09/14/Node-js-Guide/" class="leancloud_visitors" data-flag-title="Node.js Guide">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Node.js&#x662F;&#x4E00;&#x4E2A;&#x57FA;&#x4E8E;Chrome JavaScript&#x8FD0;&#x884C;&#x65F6;&#x5EFA;&#x7ACB;&#x7684;&#x5E73;&#x53F0;&#xFF0C; &#x7528;&#x4E8E;&#x65B9;&#x4FBF;&#x5730;&#x642D;&#x5EFA;&#x54CD;&#x5E94;&#x901F;&#x5EA6;&#x5FEB;&#x3001;&#x6613;&#x4E8E;&#x6269;&#x5C55;&#x7684;&#x7F51;&#x7EDC;&#x5E94;&#x7528;&#x3002;Node.js &#x4F7F;&#x7528;&#x4E8B;&#x4EF6;&#x9A71;&#x52A8;&#xFF0C; &#x975E;&#x963B;&#x585E;I/O &#x6A21;&#x578B;&#x800C;&#x5F97;&#x4EE5;&#x8F7B;&#x91CF;&#x548C;&#x9AD8;&#x6548;&#xFF0C;&#x975E;&#x5E38;&#x9002;&#x5408;&#x5728;&#x5206;&#x5E03;&#x5F0F;&#x8BBE;&#x5907;&#x4E0A;&#x8FD0;&#x884C;&#x6570;&#x636E;&#x5BC6;&#x96C6;&#x578B;&#x7684;&#x5B9E;&#x65F6;&#x5E94;&#x7528;&#x3002;</p>
-<p>Windows&#x4E0B;&#x73AF;&#x5883;&#x914D;&#x7F6E;&#xFF1A;<a href="https://github.com/coreybutler/nvm-windows">https://github.com/coreybutler/nvm-windows</a></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/09/14/Node-js-Guide/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1359,7 +1373,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-count">22</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1367,7 +1381,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1376,7 +1390,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">25</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

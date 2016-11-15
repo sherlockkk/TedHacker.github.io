@@ -4,6 +4,50 @@
 
     
   <url>
+    <loc>http://tedhacker.top/2016/11/15/Mac%E4%B8%8B%E5%AE%89%E8%A3%85HBase%E6%AD%A5%E9%AA%A4%E8%AF%A6%E8%A7%A3/</loc>
+    <lastmod>2016-11-15T08:13:07.000Z</lastmod>
+    <data>
+        <display>
+        <title>Mac下安装HBase步骤详解</title>
+        <pubTime>2016-11-15T07:49:09.000Z</pubTime>
+        
+        <tag>HBase</tag>
+         
+        <tag>mac</tag>
+         
+         
+           
+             
+              <breadCrumb title="HBase" url="http://tedhacker.top/categories/HBase/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tedhacker.top/2016/08/05/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/</loc>
+    <lastmod>2016-11-15T01:58:22.000Z</lastmod>
+    <data>
+        <display>
+        <title>博客搭建记录</title>
+        <pubTime>2016-08-05T14:48:17.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+        <tag>hero-theme-next</tag>
+         
+         
+           
+             
+              <breadCrumb title="日志" url="http://tedhacker.top/categories/%E6%97%A5%E5%BF%97/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://tedhacker.top/2016/11/14/Kaptcha%E5%92%8CJCaptcha%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D/</loc>
     <lastmod>2016-11-14T14:39:59.000Z</lastmod>
     <data>
@@ -65,28 +109,6 @@
            
              
               <breadCrumb title="计算机技术与软件专业技术资格（水平）考试" url="http://tedhacker.top/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF%E4%B8%8E%E8%BD%AF%E4%BB%B6%E4%B8%93%E4%B8%9A%E6%8A%80%E6%9C%AF%E8%B5%84%E6%A0%BC%EF%BC%88%E6%B0%B4%E5%B9%B3%EF%BC%89%E8%80%83%E8%AF%95/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://tedhacker.top/2016/08/05/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/</loc>
-    <lastmod>2016-11-10T07:17:58.000Z</lastmod>
-    <data>
-        <display>
-        <title>博客搭建记录</title>
-        <pubTime>2016-08-05T14:48:17.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-        <tag>hero-theme-next</tag>
-         
-         
-           
-             
-              <breadCrumb title="日志" url="http://tedhacker.top/categories/%E6%97%A5%E5%BF%97/"/>
           
         </display>
     </data>
