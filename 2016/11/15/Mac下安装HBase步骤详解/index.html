@@ -98,7 +98,7 @@
 <meta property="og:url" content="http://tedhacker.top/2016/11/15/Mac下安装HBase步骤详解/index.html">
 <meta property="og:site_name" content="Ted's Blog">
 <meta property="og:description" content="HBase&amp;#x662F;&amp;#x4EC0;&amp;#x4E48;HBase&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x5206;&amp;#x5E03;&amp;#x5F0F;&amp;#x7684;&amp;#x3001;&amp;#x9762;&amp;#x5411;&amp;#x5217;&amp;#x7684;&amp;#x5F00;&amp;#x6E90;&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#xFF0C;&amp;#x8BE5;&amp;#x6280;&amp;#x672">
-<meta property="og:updated_time" content="2016-11-15T08:23:23.000Z">
+<meta property="og:updated_time" content="2016-11-16T08:51:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac下安装HBase步骤详解">
 <meta name="twitter:description" content="HBase&amp;#x662F;&amp;#x4EC0;&amp;#x4E48;HBase&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x5206;&amp;#x5E03;&amp;#x5F0F;&amp;#x7684;&amp;#x3001;&amp;#x9762;&amp;#x5411;&amp;#x5217;&amp;#x7684;&amp;#x5F00;&amp;#x6E90;&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#xFF0C;&amp;#x8BE5;&amp;#x6280;&amp;#x672">
@@ -383,6 +383,48 @@
 <p>&#x51FA;&#x73B0;HMaster&#x8BF4;&#x660E;&#x5B89;&#x88C5;&#x8FD0;&#x884C;&#x6210;&#x529F;&#x3002;</p>
 <h4 id="&#x542F;&#x52A8;HBase-Shell"><a href="#&#x542F;&#x52A8;HBase-Shell" class="headerlink" title="&#x542F;&#x52A8;HBase Shell"></a>&#x542F;&#x52A8;HBase Shell</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./hbase shell</div></pre></td></tr></table></figure>
 <h4 id="&#x505C;&#x6B62;HBase"><a href="#&#x505C;&#x6B62;HBase" class="headerlink" title="&#x505C;&#x6B62;HBase"></a>&#x505C;&#x6B62;HBase</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./stop-hbase.sh</div></pre></td></tr></table></figure>
+<h3 id="HBase&#x5E38;&#x7528;&#x547D;&#x4EE4;"><a href="#HBase&#x5E38;&#x7528;&#x547D;&#x4EE4;" class="headerlink" title="HBase&#x5E38;&#x7528;&#x547D;&#x4EE4;"></a>HBase&#x5E38;&#x7528;&#x547D;&#x4EE4;</h3><table>
+<thead>
+<tr>
+<th>&#x547D;&#x4EE4;</th>
+<th>&#x63CF;&#x8FF0;</th>
+<th>&#x8303;&#x4F8B;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>list</td>
+<td>&#x663E;&#x793A;&#x5B58;&#x5728;&#x7684;&#x8868;</td>
+<td>list</td>
+</tr>
+<tr>
+<td>create</td>
+<td>&#x521B;&#x5EFA;&#x8868;</td>
+<td>create &#x2018;mytable&#x2019;,&#x2019;info&#x2019;</td>
+</tr>
+<tr>
+<td>put</td>
+<td>&#x5199;&#x6570;&#x636E;</td>
+<td>put &#x2018;mytable&#x2019;,&#x2019;first&#x2019;,&#x2019;info:bar&#x2019;,&#x2019;hello&#x2019;</td>
+</tr>
+<tr>
+<td>get</td>
+<td>&#x8BFB;&#x6570;&#x636E;</td>
+<td>get &#x2018;mytable&#x2019;,&#x2019;first&#x2019;</td>
+</tr>
+<tr>
+<td>scan</td>
+<td>&#x8BFB;&#x6570;&#x636E;(&#x8BFB;&#x5168;&#x8868;)</td>
+<td>scan &#x2018;mytable&#x2019;</td>
+</tr>
+<tr>
+<td>describe</td>
+<td>&#x663E;&#x793A;&#x8868;&#x8BE6;&#x60C5;</td>
+<td>describe &#x2018;mutable&#x2019;</td>
+</tr>
+</tbody>
+</table>
+
       
     </div>
 
@@ -579,7 +621,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#HBase是什么"><span class="nav-number">1.</span> <span class="nav-text">HBase是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HBase安装"><span class="nav-number">2.</span> <span class="nav-text">HBase安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装命令"><span class="nav-number">2.1.</span> <span class="nav-text">安装命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置HBase"><span class="nav-number">2.2.</span> <span class="nav-text">配置HBase</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运行HBase"><span class="nav-number">2.3.</span> <span class="nav-text">运行HBase</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#验证是否安装成功"><span class="nav-number">2.4.</span> <span class="nav-text">验证是否安装成功</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#启动HBase-Shell"><span class="nav-number">2.5.</span> <span class="nav-text">启动HBase Shell</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#停止HBase"><span class="nav-number">2.6.</span> <span class="nav-text">停止HBase</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#HBase是什么"><span class="nav-number">1.</span> <span class="nav-text">HBase是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HBase安装"><span class="nav-number">2.</span> <span class="nav-text">HBase安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装命令"><span class="nav-number">2.1.</span> <span class="nav-text">安装命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置HBase"><span class="nav-number">2.2.</span> <span class="nav-text">配置HBase</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运行HBase"><span class="nav-number">2.3.</span> <span class="nav-text">运行HBase</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#验证是否安装成功"><span class="nav-number">2.4.</span> <span class="nav-text">验证是否安装成功</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#启动HBase-Shell"><span class="nav-number">2.5.</span> <span class="nav-text">启动HBase Shell</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#停止HBase"><span class="nav-number">2.6.</span> <span class="nav-text">停止HBase</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HBase常用命令"><span class="nav-number">3.</span> <span class="nav-text">HBase常用命令</span></a></li></ol></div>
             
           </div>
         </section>

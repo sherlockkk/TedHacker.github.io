@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tedhacker.top/"/>
-  <updated>2016-11-15T08:23:23.000Z</updated>
+  <updated>2016-11-16T08:51:06.000Z</updated>
   <id>http://tedhacker.top/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://tedhacker.top/2016/11/15/Mac%E4%B8%8B%E5%AE%89%E8%A3%85HBase%E6%AD%A5%E9%AA%A4%E8%AF%A6%E8%A7%A3/"/>
     <id>http://tedhacker.top/2016/11/15/Mac下安装HBase步骤详解/</id>
     <published>2016-11-15T07:49:09.000Z</published>
-    <updated>2016-11-15T08:23:23.000Z</updated>
+    <updated>2016-11-16T08:51:06.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="HBase&#x662F;&#x4EC0;&#x4E48;"><a href="#HBase&#x662F;&#x4EC0;&#x4E48;" class="headerlink" title="HBase&#x662F;&#x4EC0;&#x4E48;"></a>HBase&#x662F;&#x4EC0;&#x4E48;</h3><p>HBase&#x662F;&#x4E00;&#x4E2A;&#x5206;&#x5E03;&#x5F0F;&#x7684;&#x3001;&#x9762;&#x5411;&#x5217;&#x7684;&#x5F00;&#x6E90;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x8BE5;&#x6280;&#x672F;&#x6765;&#x6E90;&#x4E8E; Fay Chang &#x6240;&#x64B0;&#x5199;&#x7684;Google&#x8BBA;&#x6587;&#x201C;Bigtable&#xFF1A;&#x4E00;&#x4E2A;&#x7ED3;&#x6784;&#x5316;&#x6570;&#x636E;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x5B58;&#x50A8;&#x7CFB;&#x7EDF;&#x201D;&#x3002;&#x5C31;&#x50CF;Bigtable&#x5229;&#x7528;&#x4E86;Google&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#xFF08;File System&#xFF09;&#x6240;&#x63D0;&#x4F9B;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x6570;&#x636E;&#x5B58;&#x50A8;&#x4E00;&#x6837;&#xFF0C;HBase&#x5728;Hadoop&#x4E4B;&#x4E0A;&#x63D0;&#x4F9B;&#x4E86;&#x7C7B;&#x4F3C;&#x4E8E;Bigtable&#x7684;&#x80FD;&#x529B;&#x3002;HBase&#x662F;Apache&#x7684;Hadoop&#x9879;&#x76EE;&#x7684;&#x5B50;&#x9879;&#x76EE;&#x3002;HBase&#x4E0D;&#x540C;&#x4E8E;&#x4E00;&#x822C;&#x7684;&#x5173;&#x7CFB;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x5B83;&#x662F;&#x4E00;&#x4E2A;&#x9002;&#x5408;&#x4E8E;&#x975E;&#x7ED3;&#x6784;&#x5316;&#x6570;&#x636E;&#x5B58;&#x50A8;&#x7684;&#x6570;&#x636E;&#x5E93;&#x3002;&#x53E6;&#x4E00;&#x4E2A;&#x4E0D;&#x540C;&#x7684;&#x662F;HBase&#x57FA;&#x4E8E;&#x5217;&#x7684;&#x800C;&#x4E0D;&#x662F;&#x57FA;&#x4E8E;&#x884C;&#x7684;&#x6A21;&#x5F0F;&#x3002;</p>
 <p>&#x5B98;&#x65B9;&#x4E3B;&#x9875;&#xFF1A;<a href="http://hbase.apache.org/" target="_blank" rel="external">http://hbase.apache.org/</a></p>
@@ -42,7 +42,49 @@
 <h4 id="&#x9A8C;&#x8BC1;&#x662F;&#x5426;&#x5B89;&#x88C5;&#x6210;&#x529F;"><a href="#&#x9A8C;&#x8BC1;&#x662F;&#x5426;&#x5B89;&#x88C5;&#x6210;&#x529F;" class="headerlink" title="&#x9A8C;&#x8BC1;&#x662F;&#x5426;&#x5B89;&#x88C5;&#x6210;&#x529F;"></a>&#x9A8C;&#x8BC1;&#x662F;&#x5426;&#x5B89;&#x88C5;&#x6210;&#x529F;</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jps</div></pre></td></tr></table></figure>
 <p>&#x51FA;&#x73B0;HMaster&#x8BF4;&#x660E;&#x5B89;&#x88C5;&#x8FD0;&#x884C;&#x6210;&#x529F;&#x3002;</p>
 <h4 id="&#x542F;&#x52A8;HBase-Shell"><a href="#&#x542F;&#x52A8;HBase-Shell" class="headerlink" title="&#x542F;&#x52A8;HBase Shell"></a>&#x542F;&#x52A8;HBase Shell</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./hbase shell</div></pre></td></tr></table></figure>
-<h4 id="&#x505C;&#x6B62;HBase"><a href="#&#x505C;&#x6B62;HBase" class="headerlink" title="&#x505C;&#x6B62;HBase"></a>&#x505C;&#x6B62;HBase</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./stop-hbase.sh</div></pre></td></tr></table></figure>]]></content>
+<h4 id="&#x505C;&#x6B62;HBase"><a href="#&#x505C;&#x6B62;HBase" class="headerlink" title="&#x505C;&#x6B62;HBase"></a>&#x505C;&#x6B62;HBase</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./stop-hbase.sh</div></pre></td></tr></table></figure>
+<h3 id="HBase&#x5E38;&#x7528;&#x547D;&#x4EE4;"><a href="#HBase&#x5E38;&#x7528;&#x547D;&#x4EE4;" class="headerlink" title="HBase&#x5E38;&#x7528;&#x547D;&#x4EE4;"></a>HBase&#x5E38;&#x7528;&#x547D;&#x4EE4;</h3><table>
+<thead>
+<tr>
+<th>&#x547D;&#x4EE4;</th>
+<th>&#x63CF;&#x8FF0;</th>
+<th>&#x8303;&#x4F8B;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>list</td>
+<td>&#x663E;&#x793A;&#x5B58;&#x5728;&#x7684;&#x8868;</td>
+<td>list</td>
+</tr>
+<tr>
+<td>create</td>
+<td>&#x521B;&#x5EFA;&#x8868;</td>
+<td>create &#x2018;mytable&#x2019;,&#x2019;info&#x2019;</td>
+</tr>
+<tr>
+<td>put</td>
+<td>&#x5199;&#x6570;&#x636E;</td>
+<td>put &#x2018;mytable&#x2019;,&#x2019;first&#x2019;,&#x2019;info:bar&#x2019;,&#x2019;hello&#x2019;</td>
+</tr>
+<tr>
+<td>get</td>
+<td>&#x8BFB;&#x6570;&#x636E;</td>
+<td>get &#x2018;mytable&#x2019;,&#x2019;first&#x2019;</td>
+</tr>
+<tr>
+<td>scan</td>
+<td>&#x8BFB;&#x6570;&#x636E;(&#x8BFB;&#x5168;&#x8868;)</td>
+<td>scan &#x2018;mytable&#x2019;</td>
+</tr>
+<tr>
+<td>describe</td>
+<td>&#x663E;&#x793A;&#x8868;&#x8BE6;&#x60C5;</td>
+<td>describe &#x2018;mutable&#x2019;</td>
+</tr>
+</tbody>
+</table>
+]]></content>
     
     <summary type="html">
     
