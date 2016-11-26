@@ -4,6 +4,12 @@
   
     
     <entry>
+      <title><![CDATA[《Spring实战》简记]]></title>
+      <url>http://tedhacker.top/2016/11/26/%E3%80%8ASpring%E5%AE%9E%E6%88%98%E3%80%8B%E7%AE%80%E8%AE%B0/</url>
+      <content type="html"><![CDATA[<h3 id="Spring&#x7684;&#x6838;&#x5FC3;"><a href="#Spring&#x7684;&#x6838;&#x5FC3;" class="headerlink" title="Spring&#x7684;&#x6838;&#x5FC3;"></a>Spring&#x7684;&#x6838;&#x5FC3;</h3>]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Mac下安装HBase步骤详解]]></title>
       <url>http://tedhacker.top/2016/11/15/Mac%E4%B8%8B%E5%AE%89%E8%A3%85HBase%E6%AD%A5%E9%AA%A4%E8%AF%A6%E8%A7%A3/</url>
       <content type="html"><![CDATA[<h3 id="HBase&#x662F;&#x4EC0;&#x4E48;"><a href="#HBase&#x662F;&#x4EC0;&#x4E48;" class="headerlink" title="HBase&#x662F;&#x4EC0;&#x4E48;"></a>HBase&#x662F;&#x4EC0;&#x4E48;</h3><p>HBase&#x662F;&#x4E00;&#x4E2A;&#x5206;&#x5E03;&#x5F0F;&#x7684;&#x3001;&#x9762;&#x5411;&#x5217;&#x7684;&#x5F00;&#x6E90;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x8BE5;&#x6280;&#x672F;&#x6765;&#x6E90;&#x4E8E; Fay Chang &#x6240;&#x64B0;&#x5199;&#x7684;Google&#x8BBA;&#x6587;&#x201C;Bigtable&#xFF1A;&#x4E00;&#x4E2A;&#x7ED3;&#x6784;&#x5316;&#x6570;&#x636E;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x5B58;&#x50A8;&#x7CFB;&#x7EDF;&#x201D;&#x3002;&#x5C31;&#x50CF;Bigtable&#x5229;&#x7528;&#x4E86;Google&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#xFF08;File System&#xFF09;&#x6240;&#x63D0;&#x4F9B;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x6570;&#x636E;&#x5B58;&#x50A8;&#x4E00;&#x6837;&#xFF0C;HBase&#x5728;Hadoop&#x4E4B;&#x4E0A;&#x63D0;&#x4F9B;&#x4E86;&#x7C7B;&#x4F3C;&#x4E8E;Bigtable&#x7684;&#x80FD;&#x529B;&#x3002;HBase&#x662F;Apache&#x7684;Hadoop&#x9879;&#x76EE;&#x7684;&#x5B50;&#x9879;&#x76EE;&#x3002;HBase&#x4E0D;&#x540C;&#x4E8E;&#x4E00;&#x822C;&#x7684;&#x5173;&#x7CFB;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x5B83;&#x662F;&#x4E00;&#x4E2A;&#x9002;&#x5408;&#x4E8E;&#x975E;&#x7ED3;&#x6784;&#x5316;&#x6570;&#x636E;&#x5B58;&#x50A8;&#x7684;&#x6570;&#x636E;&#x5E93;&#x3002;&#x53E6;&#x4E00;&#x4E2A;&#x4E0D;&#x540C;&#x7684;&#x662F;HBase&#x57FA;&#x4E8E;&#x5217;&#x7684;&#x800C;&#x4E0D;&#x662F;&#x57FA;&#x4E8E;&#x884C;&#x7684;&#x6A21;&#x5F0F;&#x3002;</p>
