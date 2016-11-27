@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tedhacker.top/"/>
-  <updated>2016-11-26T07:48:46.000Z</updated>
+  <updated>2016-11-26T08:28:07.000Z</updated>
   <id>http://tedhacker.top/</id>
   
   <author>
@@ -20,13 +20,15 @@
     <link href="http://tedhacker.top/2016/11/26/%E3%80%8ASpring%E5%AE%9E%E6%88%98%E3%80%8B%E7%AE%80%E8%AE%B0/"/>
     <id>http://tedhacker.top/2016/11/26/《Spring实战》简记/</id>
     <published>2016-11-26T07:47:06.000Z</published>
-    <updated>2016-11-26T07:48:46.000Z</updated>
+    <updated>2016-11-26T08:28:07.000Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="Spring&#x7684;&#x6838;&#x5FC3;"><a href="#Spring&#x7684;&#x6838;&#x5FC3;" class="headerlink" title="Spring&#x7684;&#x6838;&#x5FC3;"></a>Spring&#x7684;&#x6838;&#x5FC3;</h3>]]></content>
+    <content type="html"><![CDATA[<h2 id="Spring&#x7684;&#x6838;&#x5FC3;"><a href="#Spring&#x7684;&#x6838;&#x5FC3;" class="headerlink" title="Spring&#x7684;&#x6838;&#x5FC3;"></a>Spring&#x7684;&#x6838;&#x5FC3;</h2><h3 id="Spring&#x4E4B;&#x65C5;"><a href="#Spring&#x4E4B;&#x65C5;" class="headerlink" title="Spring&#x4E4B;&#x65C5;"></a>Spring&#x4E4B;&#x65C5;</h3><h4 id="&#x7B80;&#x5316;Java&#x5F00;&#x53D1;"><a href="#&#x7B80;&#x5316;Java&#x5F00;&#x53D1;" class="headerlink" title="&#x7B80;&#x5316;Java&#x5F00;&#x53D1;"></a>&#x7B80;&#x5316;Java&#x5F00;&#x53D1;</h4><h5 id="&#x9762;&#x5411;POJO&#x7F16;&#x7A0B;"><a href="#&#x9762;&#x5411;POJO&#x7F16;&#x7A0B;" class="headerlink" title="&#x9762;&#x5411;POJO&#x7F16;&#x7A0B;"></a>&#x9762;&#x5411;POJO&#x7F16;&#x7A0B;</h5><h5 id="&#x4F9D;&#x8D56;&#x6CE8;&#x5165;"><a href="#&#x4F9D;&#x8D56;&#x6CE8;&#x5165;" class="headerlink" title="&#x4F9D;&#x8D56;&#x6CE8;&#x5165;"></a>&#x4F9D;&#x8D56;&#x6CE8;&#x5165;</h5><h5 id="&#x5E94;&#x7528;&#x5207;&#x9762;"><a href="#&#x5E94;&#x7528;&#x5207;&#x9762;" class="headerlink" title="&#x5E94;&#x7528;&#x5207;&#x9762;"></a>&#x5E94;&#x7528;&#x5207;&#x9762;</h5><h5 id="&#x6A21;&#x677F;&#x6280;&#x672F;"><a href="#&#x6A21;&#x677F;&#x6280;&#x672F;" class="headerlink" title="&#x6A21;&#x677F;&#x6280;&#x672F;"></a>&#x6A21;&#x677F;&#x6280;&#x672F;</h5><h3 id="&#x88C5;&#x914D;Bean"><a href="#&#x88C5;&#x914D;Bean" class="headerlink" title="&#x88C5;&#x914D;Bean"></a>&#x88C5;&#x914D;Bean</h3><h2 id="&#x76F8;&#x5173;&#x4E66;&#x7C4D;"><a href="#&#x76F8;&#x5173;&#x4E66;&#x7C4D;" class="headerlink" title="&#x76F8;&#x5173;&#x4E66;&#x7C4D;"></a>&#x76F8;&#x5173;&#x4E66;&#x7C4D;</h2><p>&#x300A;Expert Ono-on-One: J2EE Design and Development&#x300B;</p>
+<p>&#x300A;Dependency Injection&#x300B;</p>
+]]></content>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;Spring&amp;#x7684;&amp;#x6838;&amp;#x5FC3;&quot;&gt;&lt;a href=&quot;#Spring&amp;#x7684;&amp;#x6838;&amp;#x5FC3;&quot; class=&quot;headerlink&quot; title=&quot;Spring&amp;#x7684;&amp;#x6838;&amp;#x5FC3;&quot;&gt;
+      &lt;h2 id=&quot;Spring&amp;#x7684;&amp;#x6838;&amp;#x5FC3;&quot;&gt;&lt;a href=&quot;#Spring&amp;#x7684;&amp;#x6838;&amp;#x5FC3;&quot; class=&quot;headerlink&quot; title=&quot;Spring&amp;#x7684;&amp;#x6838;&amp;#x5FC3;&quot;&gt;
     
     </summary>
     
