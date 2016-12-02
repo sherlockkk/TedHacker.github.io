@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tedhacker.top/"/>
-  <updated>2016-12-02T03:11:28.000Z</updated>
+  <updated>2016-12-02T06:13:06.000Z</updated>
   <id>http://tedhacker.top/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://tedhacker.top/2016/12/01/RabbitMQ%E4%BD%BF%E7%94%A8%E7%AE%80%E8%AE%B0/"/>
     <id>http://tedhacker.top/2016/12/01/RabbitMQ使用简记/</id>
     <published>2016-12-01T07:45:51.000Z</published>
-    <updated>2016-12-02T03:11:28.000Z</updated>
+    <updated>2016-12-02T06:13:06.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="RabbitMQ&#x662F;&#x4EC0;&#x4E48;"><a href="#RabbitMQ&#x662F;&#x4EC0;&#x4E48;" class="headerlink" title="RabbitMQ&#x662F;&#x4EC0;&#x4E48;"></a>RabbitMQ&#x662F;&#x4EC0;&#x4E48;</h3><p>MQ&#x5168;&#x79F0;&#x4E3A;Message Queue, &#x5373;&#x6D88;&#x606F;&#x961F;&#x5217;&#x3002;MQ&#x662F;&#x4E00;&#x79CD;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5BF9;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x901A;&#x4FE1;&#x65B9;&#x6CD5;&#x3002;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x901A;&#x8FC7;&#x8BFB;&#x5199;&#x51FA;&#x5165;&#x961F;&#x5217;&#x7684;&#x6D88;&#x606F;&#xFF08;&#x9488;&#x5BF9;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x6570;&#x636E;&#xFF09;&#x6765;&#x901A;&#x4FE1;&#xFF0C;&#x800C;&#x65E0;&#x9700;&#x4E13;&#x7528;&#x8FDE;&#x63A5;&#x6765;&#x94FE;&#x63A5;&#x5B83;&#x4EEC;&#x3002;&#x6D88;&#x606F;&#x4F20;&#x9012;&#x6307;&#x7684;&#x662F;&#x7A0B;&#x5E8F;&#x4E4B;&#x95F4;&#x901A;&#x8FC7;&#x5728;&#x6D88;&#x606F;&#x4E2D;&#x53D1;&#x9001;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x901A;&#x4FE1;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x901A;&#x8FC7;&#x76F4;&#x63A5;&#x8C03;&#x7528;&#x5F7C;&#x6B64;&#x6765;&#x901A;&#x4FE1;&#xFF0C;&#x76F4;&#x63A5;&#x8C03;&#x7528;&#x901A;&#x5E38;&#x662F;&#x7528;&#x4E8E;&#x8BF8;&#x5982;&#x8FDC;&#x7A0B;&#x8FC7;&#x7A0B;&#x8C03;&#x7528;&#x7684;&#x6280;&#x672F;&#x3002;&#x6392;&#x961F;&#x6307;&#x7684;&#x662F;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x901A;&#x8FC7;&#x961F;&#x5217;&#x6765;&#x901A;&#x4FE1;&#x3002;&#x961F;&#x5217;&#x7684;&#x4F7F;&#x7528;&#x9664;&#x53BB;&#x4E86;&#x63A5;&#x6536;&#x548C;&#x53D1;&#x9001;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x540C;&#x65F6;&#x6267;&#x884C;&#x7684;&#x8981;&#x6C42;&#x3002;RabbitMQ&#x5219;&#x662F;&#x4E00;&#x4E2A;&#x5728;AMQP&#x57FA;&#x7840;&#x4E0A;&#x5B8C;&#x6574;&#x7684;&#xFF0C;&#x53EF;&#x590D;&#x7528;&#x7684;&#x4F01;&#x4E1A;&#x6D88;&#x606F;&#x7CFB;&#x7EDF;&#x3002;</p>
 <h3 id="RabbitMQ&#x5B89;&#x88C5;&#x4E0E;&#x542F;&#x52A8;"><a href="#RabbitMQ&#x5B89;&#x88C5;&#x4E0E;&#x542F;&#x52A8;" class="headerlink" title="RabbitMQ&#x5B89;&#x88C5;&#x4E0E;&#x542F;&#x52A8;"></a>RabbitMQ&#x5B89;&#x88C5;&#x4E0E;&#x542F;&#x52A8;</h3><h4 id="&#x5B89;&#x88C5;&#x547D;&#x4EE4;"><a href="#&#x5B89;&#x88C5;&#x547D;&#x4EE4;" class="headerlink" title="&#x5B89;&#x88C5;&#x547D;&#x4EE4;"></a>&#x5B89;&#x88C5;&#x547D;&#x4EE4;</h4><p>&#x7EC8;&#x7AEF;&#x4E2D;&#x8F93;&#x5165;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;</p>
@@ -33,8 +33,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">source ~/.bash_profile</div></pre></td></tr></table></figure>
 <h4 id="&#x542F;&#x52A8;RabbitMQ"><a href="#&#x542F;&#x52A8;RabbitMQ" class="headerlink" title="&#x542F;&#x52A8;RabbitMQ"></a>&#x542F;&#x52A8;RabbitMQ</h4><p>&#x7EC8;&#x7AEF;&#x4E2D;&#x8F93;&#x5165;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rabbitmq-server</div></pre></td></tr></table></figure>
-<p>&#x767B;&#x5F55;Web&#x7BA1;&#x7406;&#x754C;&#x9762;</p>
-<p>&#x6D4F;&#x89C8;&#x5668;&#x5730;&#x5740;&#x680F;&#x8F93;&#x5165; <code>http://localhost:15672/</code>&#xFF0C;&#x8D26;&#x6237;&#x5BC6;&#x7801;&#x9ED8;&#x8BA4; <code>guest</code></p>
+<h4 id="&#x767B;&#x5F55;Web&#x7BA1;&#x7406;&#x754C;&#x9762;"><a href="#&#x767B;&#x5F55;Web&#x7BA1;&#x7406;&#x754C;&#x9762;" class="headerlink" title="&#x767B;&#x5F55;Web&#x7BA1;&#x7406;&#x754C;&#x9762;"></a>&#x767B;&#x5F55;Web&#x7BA1;&#x7406;&#x754C;&#x9762;</h4><p>&#x6D4F;&#x89C8;&#x5668;&#x5730;&#x5740;&#x680F;&#x8F93;&#x5165; <code>http://localhost:15672/</code>&#xFF0C;&#x8D26;&#x6237;&#x5BC6;&#x7801;&#x9ED8;&#x8BA4; <code>guest</code></p>
 <a id="more"></a>
 <p><img src="/2016/12/01/RabbitMQ&#x4F7F;&#x7528;&#x7B80;&#x8BB0;/RabbitMQ&#x767B;&#x5F55;&#x9875;&#x9762;.png" alt="RabbitMQ&#x767B;&#x5F55;&#x9875;&#x9762;"></p>
 <h3 id="Hello-RabbitMQ"><a href="#Hello-RabbitMQ" class="headerlink" title="Hello RabbitMQ"></a>Hello RabbitMQ</h3><p>&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x6765;&#x4F53;&#x9A8C;RabbitMQ&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#x3002;</p>
@@ -61,8 +60,7 @@
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;source ~/.bash_profile&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;h4 id=&quot;&amp;#x542F;&amp;#x52A8;RabbitMQ&quot;&gt;&lt;a href=&quot;#&amp;#x542F;&amp;#x52A8;RabbitMQ&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x542F;&amp;#x52A8;RabbitMQ&quot;&gt;&lt;/a&gt;&amp;#x542F;&amp;#x52A8;RabbitMQ&lt;/h4&gt;&lt;p&gt;&amp;#x7EC8;&amp;#x7AEF;&amp;#x4E2D;&amp;#x8F93;&amp;#x5165;&amp;#x4EE5;&amp;#x4E0B;&amp;#x547D;&amp;#x4EE4;&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;rabbitmq-server&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;&amp;#x767B;&amp;#x5F55;Web&amp;#x7BA1;&amp;#x7406;&amp;#x754C;&amp;#x9762;&lt;/p&gt;
-&lt;p&gt;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x5730;&amp;#x5740;&amp;#x680F;&amp;#x8F93;&amp;#x5165; &lt;code&gt;http://localhost:15672/&lt;/code&gt;&amp;#xFF0C;&amp;#x8D26;&amp;#x6237;&amp;#x5BC6;&amp;#x7801;&amp;#x9ED8;&amp;#x8BA4; &lt;code&gt;guest&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&quot;&amp;#x767B;&amp;#x5F55;Web&amp;#x7BA1;&amp;#x7406;&amp;#x754C;&amp;#x9762;&quot;&gt;&lt;a href=&quot;#&amp;#x767B;&amp;#x5F55;Web&amp;#x7BA1;&amp;#x7406;&amp;#x754C;&amp;#x9762;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x767B;&amp;#x5F55;Web&amp;#x7BA1;&amp;#x7406;&amp;#x754C;&amp;#x9762;&quot;&gt;&lt;/a&gt;&amp;#x767B;&amp;#x5F55;Web&amp;#x7BA1;&amp;#x7406;&amp;#x754C;&amp;#x9762;&lt;/h4&gt;&lt;p&gt;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x5730;&amp;#x5740;&amp;#x680F;&amp;#x8F93;&amp;#x5165; &lt;code&gt;http://localhost:15672/&lt;/code&gt;&amp;#xFF0C;&amp;#x8D26;&amp;#x6237;&amp;#x5BC6;&amp;#x7801;&amp;#x9ED8;&amp;#x8BA4; &lt;code&gt;guest&lt;/code&gt;&lt;/p&gt;
     
     </summary>
     
