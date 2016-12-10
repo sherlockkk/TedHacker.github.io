@@ -1,0 +1,1053 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="google-site-verification" content="y2Tsc6YVry1rlBn1ZDPfjMZCuFOWX_Tpchp1Yfd6nWk" />
+<meta name="baidu-site-verification" content="PzhPbVlRVc" />
+<meta name="msvalidate.01" content="235167E1B0EC050699199E94EBAED1F1" />
+<meta name="sogou_site_verification" content="xthq7jgXLg"/>
+<meta name="shenma-site-verification" content="ba5ee4a1643cb5d9ea91238e2aff80b2_1479174396"/>
+<meta name="360-site-verification" content="2f3e521004eb8ac3f7b1ba3c5a54725c" />
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Java,HashMap,容器,源码分析" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Ted's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="HashMap&amp;#x662F;&amp;#x4EC0;&amp;#x4E48;HashMap&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x57FA;&amp;#x4E8E;&amp;#x54C8;&amp;#x5E0C;&amp;#x8868;&amp;#x7684;&amp;#x5BB9;&amp;#x5668;&amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x63D0;&amp;#x4F9B;&amp;#x6570;&amp;#x503C;&amp;#x4E4B;&amp;#x95F4;&amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HashMap源码分析">
+<meta property="og:url" content="http://tedhacker.top/2016/12/10/HashMap源码分析/index.html">
+<meta property="og:site_name" content="Ted's Blog">
+<meta property="og:description" content="HashMap&amp;#x662F;&amp;#x4EC0;&amp;#x4E48;HashMap&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x57FA;&amp;#x4E8E;&amp;#x54C8;&amp;#x5E0C;&amp;#x8868;&amp;#x7684;&amp;#x5BB9;&amp;#x5668;&amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x63D0;&amp;#x4F9B;&amp;#x6570;&amp;#x503C;&amp;#x4E4B;&amp;#x95F4;&amp;#">
+<meta property="og:updated_time" content="2016-12-10T14:28:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HashMap源码分析">
+<meta name="twitter:description" content="HashMap&amp;#x662F;&amp;#x4EC0;&amp;#x4E48;HashMap&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x57FA;&amp;#x4E8E;&amp;#x54C8;&amp;#x5E0C;&amp;#x8868;&amp;#x7684;&amp;#x5BB9;&amp;#x5668;&amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x63D0;&amp;#x4F9B;&amp;#x6570;&amp;#x503C;&amp;#x4E4B;&amp;#x95F4;&amp;#">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://tedhacker.top/2016/12/10/HashMap源码分析/"/>
+
+  <title> HashMap源码分析 | Ted's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Ted's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">水滴石穿</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                HashMap源码分析
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-10T16:16:36+08:00" content="2016-12-10">
+              2016-12-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/12/10/HashMap源码分析/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/10/HashMap源码分析/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/12/10/HashMap源码分析/" class="leancloud_visitors" data-flag-title="HashMap源码分析">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="HashMap&#x662F;&#x4EC0;&#x4E48;"><a href="#HashMap&#x662F;&#x4EC0;&#x4E48;" class="headerlink" title="HashMap&#x662F;&#x4EC0;&#x4E48;"></a>HashMap&#x662F;&#x4EC0;&#x4E48;</h3><p>HashMap&#x662F;&#x4E00;&#x4E2A;&#x57FA;&#x4E8E;&#x54C8;&#x5E0C;&#x8868;&#x7684;&#x5BB9;&#x5668;&#xFF0C;&#x53EF;&#x4EE5;&#x63D0;&#x4F9B;&#x6570;&#x503C;&#x4E4B;&#x95F4;&#x7684;&#x6620;&#x5C04;&#x64CD;&#x4F5C;&#x3002;&#x5141;&#x8BB8;&#x4F7F;&#x7528;null&#x503C;&#x548C;null&#x952E;&#xFF0C;&#x4F46;&#x662F;&#x4E0D;&#x4FDD;&#x8BC1;&#x6620;&#x5C04;&#x7684;&#x987A;&#x5E8F;&#x3002;&#x53E6;&#x5916;&#xFF0C;HashMap&#x662F;&#x975E;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7684;&#xFF0C;&#x5728;&#x591A;&#x7EBF;&#x7A0B;&#x7684;&#x73AF;&#x5883;&#x4E0B;&#x4F7F;&#x7528;&#x53EF;&#x80FD;&#x5B58;&#x5728;&#x95EE;&#x9898;&#x3002;</p>
+<p>&#x5E38;&#x89C1;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<ul>
+<li><p>&#x5B58;&#xFF1A;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">map.put(key,value);</div></pre></td></tr></table></figure>
+</li>
+<li><p>&#x53D6;&#xFF1A;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">map.get(key);</div></pre></td></tr></table></figure>
+</li>
+<li><p>&#x904D;&#x5386;&#xFF1A;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (Map.Entry&lt;K, V&gt; entry : map.entrySet()) {</div><div class="line">  Object key = entry.getKey();</div><div class="line">  Object value = entry.getValue();</div><div class="line">}</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>&#x6E90;&#x7801;&#x7248;&#x672C;&#xFF1A;JDK 1.7.0</p>
+<h3 id="&#x7EE7;&#x627F;&#x5173;&#x7CFB;"><a href="#&#x7EE7;&#x627F;&#x5173;&#x7CFB;" class="headerlink" title="&#x7EE7;&#x627F;&#x5173;&#x7CFB;"></a>&#x7EE7;&#x627F;&#x5173;&#x7CFB;</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">* <span class="meta">@param</span> &lt;K&gt; the type of keys maintained by <span class="keyword">this</span> map</div><div class="line">* <span class="meta">@param</span> &lt;V&gt; the type of mapped values</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HashMap</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;</span></div><div class="line">    <span class="keyword">extends</span> <span class="title">AbstractMap</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;</div><div class="line">    <span class="keyword">implements</span> <span class="title">Map</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;, <span class="title">Cloneable</span>, <span class="title">Serializable</span></div></pre></td></tr></table></figure>
+<p>HashMap&#x7EE7;&#x627F;&#x4E8E;AbstractMap&#xFF0C;&#x540C;&#x65F6;&#x5B9E;&#x73B0;&#x4E86;Map&#xFF0C;Cloneable&#xFF0C;Serializable&#x63A5;&#x53E3;&#x3002;&#x56E0;&#x6B64;&#xFF0C;HashMap&#x53EF;&#x4EE5;&#x88AB;&#x514B;&#x9686;&#xFF08;Cloneable&#xFF09;,&#x540C;&#x65F6;&#x4E5F;&#x652F;&#x6301;&#x5E8F;&#x5217;&#x5316;&#xFF08;Serializable&#xFF09;&#x3002;</p>
+<a id="more"></a>
+<h3 id="&#x5B58;&#x50A8;&#x7ED3;&#x6784;"><a href="#&#x5B58;&#x50A8;&#x7ED3;&#x6784;" class="headerlink" title="&#x5B58;&#x50A8;&#x7ED3;&#x6784;"></a>&#x5B58;&#x50A8;&#x7ED3;&#x6784;</h3><p>HashMap&#x4F7F;&#x7528;&#x5185;&#x90E8;&#x7C7B;Entry&#x6765;&#x5B58;&#x50A8;&#x6570;&#x636E;&#xFF0C;Entry&#x5B9E;&#x73B0;&#x4E86;Map.Entry&#x63A5;&#x53E3;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Entry</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="keyword">implements</span> <span class="title">Map</span>.<span class="title">Entry</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; </span>{</div><div class="line">        <span class="keyword">final</span> K key;</div><div class="line">        V value;</div><div class="line">        Entry&lt;K,V&gt; next;</div><div class="line">        <span class="keyword">int</span> hash;</div><div class="line">        Entry(<span class="keyword">int</span> h, K k, V v, Entry&lt;K,V&gt; n) {</div><div class="line">            value = v;</div><div class="line">            next = n;</div><div class="line">            key = k;</div><div class="line">            hash = h;</div><div class="line">        }</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> K <span class="title">getKey</span><span class="params">()</span> </span>{<span class="keyword">return</span> key;}</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> V <span class="title">getValue</span><span class="params">()</span> </span>{<span class="keyword">return</span> value;}</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> V <span class="title">setValue</span><span class="params">(V newValue)</span> </span>{</div><div class="line">            V oldValue = value;</div><div class="line">            value = newValue;</div><div class="line">            <span class="keyword">return</span> oldValue;</div><div class="line">        }</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span> </span>{</div><div class="line">            <span class="keyword">if</span> (!(o <span class="keyword">instanceof</span> Map.Entry))</div><div class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">            Map.Entry e = (Map.Entry)o;</div><div class="line">            Object k1 = getKey();</div><div class="line">            Object k2 = e.getKey();</div><div class="line">            <span class="keyword">if</span> (k1 == k2 || (k1 != <span class="keyword">null</span> &amp;&amp; k1.equals(k2))) {</div><div class="line">                Object v1 = getValue();</div><div class="line">                Object v2 = e.getValue();</div><div class="line">                <span class="keyword">if</span> (v1 == v2 || (v1 != <span class="keyword">null</span> &amp;&amp; v1.equals(v2)))</div><div class="line">                    <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">            }</div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        }</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>{</div><div class="line">            <span class="keyword">return</span> Objects.hashCode(getKey()) ^ Objects.hashCode(getValue());</div><div class="line">        }</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> String <span class="title">toString</span><span class="params">()</span> </span>{</div><div class="line">            <span class="keyword">return</span> getKey() + <span class="string">&quot;=&quot;</span> + getValue();</div><div class="line">        }</div><div class="line">        <span class="function"><span class="keyword">void</span> <span class="title">recordAccess</span><span class="params">(HashMap&lt;K,V&gt; m)</span> </span>{}</div><div class="line">        <span class="function"><span class="keyword">void</span> <span class="title">recordRemoval</span><span class="params">(HashMap&lt;K,V&gt; m)</span> </span>{}</div><div class="line">    }</div></pre></td></tr></table></figure>
+<h3 id="&#x5173;&#x952E;&#x5C5E;&#x6027;"><a href="#&#x5173;&#x952E;&#x5C5E;&#x6027;" class="headerlink" title="&#x5173;&#x952E;&#x5C5E;&#x6027;"></a>&#x5173;&#x952E;&#x5C5E;&#x6027;</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEFAULT_INITIAL_CAPACITY = <span class="number">1</span> &lt;&lt; <span class="number">4</span>; <span class="comment">// aka 16</span></div><div class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> MAXIMUM_CAPACITY = <span class="number">1</span> &lt;&lt; <span class="number">30</span>;</div><div class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">float</span> DEFAULT_LOAD_FACTOR = <span class="number">0.75f</span>;</div><div class="line"><span class="keyword">static</span> <span class="keyword">final</span> Entry&lt;?,?&gt;[] EMPTY_TABLE = {};</div><div class="line"><span class="keyword">transient</span> Entry&lt;K,V&gt;[] table = (Entry&lt;K,V&gt;[]) EMPTY_TABLE;</div><div class="line"><span class="keyword">transient</span> <span class="keyword">int</span> size;</div><div class="line"><span class="keyword">int</span> threshold;</div><div class="line"><span class="keyword">final</span> <span class="keyword">float</span> loadFactor;</div><div class="line"><span class="keyword">transient</span> <span class="keyword">int</span> modCount;</div><div class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ALTERNATIVE_HASHING_THRESHOLD_DEFAULT = Integer.MAX_VALUE;</div><div class="line"><span class="keyword">transient</span> <span class="keyword">int</span> hashSeed = <span class="number">0</span>;</div><div class="line"><span class="keyword">private</span> <span class="keyword">transient</span> Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet = <span class="keyword">null</span>;</div></pre></td></tr></table></figure>
+<ul>
+<li><p><code>DEFAULT_INITIAL_CAPACITY</code>&#x4EE3;&#x8868;HashMap&#x6876;&#xFF08;bucket&#xFF09;&#x7684;&#x9ED8;&#x8BA4;&#x5BB9;&#x91CF;&#xFF0C;&#x521D;&#x59CB;&#x5316;&#x4E3A;16&#xFF0C;&#x8BE5;&#x503C;&#x5FC5;&#x987B;&#x662F;2&#x7684;&#x5E42;&#x3002;</p>
+</li>
+<li><p><code>MAXIMUM_CAPACITY</code>&#x4EE3;&#x8868;HashMap&#x6876;&#xFF08;bucket&#xFF09;&#x7684;&#x6700;&#x5927;&#x5BB9;&#x91CF;&#xFF0C;&#x521D;&#x59CB;&#x5316;&#x4E3A;1073741824&#xFF0C;&#x8BE5;&#x503C;&#x5FC5;&#x987B;&#x662F;2&#x7684;&#x5E42;&#xFF0C;&#x540C;&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x6784;&#x9020;&#x7684;&#x5BB9;&#x91CF;&#x5927;&#x4E8E;&#x8FD9;&#x4E2A;&#x503C;&#xFF0C;&#x90A3;&#x4E48;&#x5B9E;&#x9645;&#x7684;&#x5BB9;&#x91CF;&#x5C31;&#x4F1A;&#x88AB;&#x8FD9;&#x4E2A;&#x503C;&#x66FF;&#x6362;&#x3002;</p>
+</li>
+<li><p><code>DEFAULT_LOAD_FACTOR</code>&#x662F;&#x9ED8;&#x8BA4;&#x7684;&#x52A0;&#x8F7D;&#x56E0;&#x5B50;&#xFF0C;&#x7528;&#x4E8E;&#x8BA1;&#x7B97;HashMap&#x6269;&#x5BB9;&#x7684;threshold&#xFF0C;&#x5F53;HashMap&#x7684;&#x5B9E;&#x9645;&#x4F7F;&#x7528;&#x5BB9;&#x91CF;&#x8FBE;&#x5230;&#x603B;&#x5BB9;&#x91CF;&#x7684;threshold&#x65F6;&#xFF0C;&#x5BF9;HashMap&#x8FDB;&#x884C;&#x6269;&#x5BB9;&#x3002;</p>
+</li>
+<li><p><code>EMPTY_TABLE</code></p>
+</li>
+<li><p><code>table</code>&#x662F;&#x5B58;&#x50A8;Entry&#x7684;&#x6570;&#x7EC4;&#xFF0C;&#x6BCF;&#x4E2A;Entry&#x662F;&#x4E00;&#x6761;&#x5355;&#x94FE;&#x8868;&#x7684;&#x5934;&#x8282;&#x70B9;&#x3002;</p>
+</li>
+<li><p><code>size</code>&#x4EE3;&#x8868;HashMap&#x5B9E;&#x9645;&#x952E;&#x503C;&#x5BF9;&#x7684;&#x6570;&#x91CF;&#x3002;</p>
+</li>
+<li><p><code>threshold</code>&#x662F;HashMap&#x662F;&#x5426;&#x9700;&#x8981;&#x6269;&#x5BB9;&#x7684;&#x9608;&#x503C;&#xFF0C;threshold = capacity * load factor&#x3002;</p>
+</li>
+<li><p><code>loadFactor</code>&#x662F;HashMap&#x5B9E;&#x9645;&#x52A0;&#x8F7D;&#x56E0;&#x5B50;&#xFF0C;&#x901A;&#x8FC7;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x4F20;&#x5165;&#xFF0C;&#x5982;&#x672A;&#x6307;&#x5B9A;&#xFF0C;&#x5219;&#x4E3A;DEFAULT_LOAD_FACTOR&#x3002;</p>
+<p>&#x8BE5;&#x503C;&#x4EE3;&#x8868;HashMap&#x53D1;&#x751F;&#x6269;&#x5BB9;&#x65F6;&#x7684;&#x6269;&#x5C55;&#x7A0B;&#x5EA6;&#x3002;&#x5982;&#x679C;&#x503C;&#x8D8A;&#x5927;&#xFF0C;&#x610F;&#x5473;&#x7740;HashMap&#x6269;&#x5BB9;&#x524D;&#x53D1;&#x751F;hash&#x51B2;&#x7A81;&#x7684;&#x673A;&#x4F1A;&#x8D8A;&#x5927;&#xFF0C;&#x5355;&#x94FE;&#x8868;&#x7684;&#x957F;&#x5EA6;&#x53EF;&#x80FD;&#x8D8A;&#x957F;&#xFF0C;&#x5BB9;&#x5668;&#x67E5;&#x627E;&#x6548;&#x7387;&#x53EF;&#x80FD;&#x964D;&#x4F4E;&#x3002;&#x5982;&#x679C;&#x503C;&#x8D8A;&#x5C0F;&#xFF0C;&#x610F;&#x5473;&#x7740;HashMap&#x7A7A;&#x95F4;&#x5229;&#x7528;&#x7387;&#x8D8A;&#x4F4E;&#xFF0C;&#x53EF;&#x80FD;&#x5728;&#x7A7A;&#x95F4;&#x6CA1;&#x6709;&#x88AB;&#x5145;&#x5206;&#x5229;&#x7528;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x5C31;&#x5F00;&#x59CB;&#x6269;&#x5BB9;&#x64CD;&#x4F5C;&#x3002;</p>
+</li>
+<li><p><code>modCount</code>&#x4EE3;&#x8868;&#x5F53;&#x524D;HashMap&#x53D1;&#x751F;&#x7ED3;&#x6784;&#x6027;&#x4FEE;&#x6539;&#x7684;&#x6B21;&#x6570;&#x3002;&#x7ED3;&#x6784;&#x6027;&#x4FEE;&#x6539;&#x6307;&#x4FEE;&#x6539;HashMap&#x952E;&#x503C;&#x5BF9;&#x6570;&#x91CF;&#x6216;&#x8005;&#x5185;&#x90E8;&#x7ED3;&#x6784;&#x7684;&#x64CD;&#x4F5C;&#x3002;&#x8BE5;&#x503C;&#x7528;&#x4E8E;&#x5BB9;&#x5668;&#x8FED;&#x4EE3;&#x5668;fail-fast&#x7684;&#x5224;&#x65AD;&#x3002;</p>
+</li>
+<li><p><code>ALTERNATIVE_HASHING_THRESHOLD_DEFAULT</code></p>
+</li>
+<li><p><code>hashSeed</code></p>
+</li>
+<li><p><code>entrySet</code></p>
+</li>
+</ul>
+<h3 id="&#x6784;&#x9020;&#x65B9;&#x6CD5;"><a href="#&#x6784;&#x9020;&#x65B9;&#x6CD5;" class="headerlink" title="&#x6784;&#x9020;&#x65B9;&#x6CD5;"></a>&#x6784;&#x9020;&#x65B9;&#x6CD5;</h3><h3 id="&#x5B58;&#x53D6;&#x65B9;&#x6CD5;"><a href="#&#x5B58;&#x53D6;&#x65B9;&#x6CD5;" class="headerlink" title="&#x5B58;&#x53D6;&#x65B9;&#x6CD5;"></a>&#x5B58;&#x53D6;&#x65B9;&#x6CD5;</h3><h3 id="&#x7EBF;&#x7A0B;&#x5B89;&#x5168;"><a href="#&#x7EBF;&#x7A0B;&#x5B89;&#x5168;" class="headerlink" title="&#x7EBF;&#x7A0B;&#x5B89;&#x5168;"></a>&#x7EBF;&#x7A0B;&#x5B89;&#x5168;</h3><h3 id="HashMap&#x548C;HashTable"><a href="#HashMap&#x548C;HashTable" class="headerlink" title="HashMap&#x548C;HashTable"></a>HashMap&#x548C;HashTable</h3>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      <br/>
+      <div class="copyright" style="clear:both;">
+         <p><b>本文标题: </b><a href="/2016/12/10/HashMap源码分析/">HashMap源码分析</a></p>
+         <p><b>文章作者: </b><a href="/" title="访问 TedHacker 的个人博客">TedHacker</a></p>
+         <p><b>原始链接: </b><a href="http://tedhacker.top/2016/12/10/HashMap源码分析/">http://tedhacker.top/2016/12/10/HashMap源码分析/</a>
+      </div>
+
+      
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag">#Java</a>
+          
+            <a href="/tags/HashMap/" rel="tag">#HashMap</a>
+          
+            <a href="/tags/容器/" rel="tag">#容器</a>
+          
+            <a href="/tags/源码分析/" rel="tag">#源码分析</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/01/RabbitMQ使用简记/" rel="next" title="RabbitMQ使用简记">
+                <i class="fa fa-chevron-left"></i> RabbitMQ使用简记
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/12/10/HashMap源码分析/"
+           data-title="HashMap源码分析" data-url="http://tedhacker.top/2016/12/10/HashMap源码分析/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="TedHacker" />
+          <p class="site-author-name" itemprop="name">TedHacker</p>
+          <p class="site-description motion-element" itemprop="description">一步一步慢慢往上爬~ (ง •̀_•́)ง</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">31</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/TedHacker" target="_blank" title="Github" >
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.csdn.net/acm_Ted" target="_blank" title="CSDN" >
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  CSDN
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#HashMap是什么"><span class="nav-number">1.</span> <span class="nav-text">HashMap是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承关系"><span class="nav-number">2.</span> <span class="nav-text">继承关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储结构"><span class="nav-number">3.</span> <span class="nav-text">存储结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关键属性"><span class="nav-number">4.</span> <span class="nav-text">关键属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造方法"><span class="nav-number">5.</span> <span class="nav-text">构造方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存取方法"><span class="nav-number">6.</span> <span class="nav-text">存取方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程安全"><span class="nav-number">7.</span> <span class="nav-text">线程安全</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HashMap和HashTable"><span class="nav-number">8.</span> <span class="nav-text">HashMap和HashTable</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">TedHacker</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io" rel="external nofollow">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+    <span class="site-pv">Total visited<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>times.</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"tedhacker"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("pTAH4gqlpIJiGEiOdiEPaubQ-gzGzoHsz", "mqmc64oerUohcXqxQxrDJwjt");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+<script type="text/javascript" src="/js/src/particle.js"></script>
+
+</body>
+</html>
