@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tedhacker.top/"/>
-  <updated>2016-12-28T07:56:17.000Z</updated>
+  <updated>2016-12-28T08:08:10.000Z</updated>
   <id>http://tedhacker.top/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://tedhacker.top/2016/12/23/Mybatis%E4%BD%BF%E7%94%A8%E7%AE%80%E8%AE%B0/"/>
     <id>http://tedhacker.top/2016/12/23/Mybatis使用简记/</id>
     <published>2016-12-23T12:42:20.000Z</published>
-    <updated>2016-12-28T07:56:17.000Z</updated>
+    <updated>2016-12-28T08:08:10.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="Mybatis&#x662F;&#x4EC0;&#x4E48;"><a href="#Mybatis&#x662F;&#x4EC0;&#x4E48;" class="headerlink" title="Mybatis&#x662F;&#x4EC0;&#x4E48;"></a>Mybatis&#x662F;&#x4EC0;&#x4E48;</h3><p>MyBatis &#x662F;&#x652F;&#x6301;&#x5B9A;&#x5236;&#x5316; SQL&#x3001;&#x5B58;&#x50A8;&#x8FC7;&#x7A0B;&#x4EE5;&#x53CA;&#x9AD8;&#x7EA7;&#x6620;&#x5C04;&#x7684;&#x4F18;&#x79C0;&#x7684;&#x6301;&#x4E45;&#x5C42;&#x6846;&#x67B6;&#x3002;MyBatis &#x907F;&#x514D;&#x4E86;&#x51E0;&#x4E4E;&#x6240;&#x6709;&#x7684; JDBC &#x4EE3;&#x7801;&#x548C;&#x624B;&#x52A8;&#x8BBE;&#x7F6E;&#x53C2;&#x6570;&#x4EE5;&#x53CA;&#x83B7;&#x53D6;&#x7ED3;&#x679C;&#x96C6;&#x3002;MyBatis &#x53EF;&#x4EE5;&#x5BF9;&#x914D;&#x7F6E;&#x548C;&#x539F;&#x751F;Map&#x4F7F;&#x7528;&#x7B80;&#x5355;&#x7684; XML &#x6216;&#x6CE8;&#x89E3;&#xFF0C;&#x5C06;&#x63A5;&#x53E3;&#x548C; Java &#x7684; POJOs(Plain Old Java Objects,&#x666E;&#x901A;&#x7684; Java&#x5BF9;&#x8C61;)&#x6620;&#x5C04;&#x6210;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684;&#x8BB0;&#x5F55;&#x3002;</p>
 <p>&#x5B98;&#x7F51;&#xFF1A;<a href="http://www.mybatis.org/" target="_blank" rel="external">http://www.mybatis.org/</a></p>
@@ -73,6 +73,8 @@
     
     
       <category term="Java" scheme="http://tedhacker.top/tags/Java/"/>
+    
+      <category term="Spring" scheme="http://tedhacker.top/tags/Spring/"/>
     
       <category term="Mybatis" scheme="http://tedhacker.top/tags/Mybatis/"/>
     
