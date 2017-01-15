@@ -38,6 +38,15 @@
 <li>call&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x6709;&#x8FD4;&#x56DE;&#x503C;</li>
 <li>call&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#x5E76;&#x88AB;&#x6355;&#x83B7;</li>
 </ul>
+<h3 id="&#x7EBF;&#x7A0B;&#x57FA;&#x672C;&#x64CD;&#x4F5C;"><a href="#&#x7EBF;&#x7A0B;&#x57FA;&#x672C;&#x64CD;&#x4F5C;" class="headerlink" title="&#x7EBF;&#x7A0B;&#x57FA;&#x672C;&#x64CD;&#x4F5C;"></a>&#x7EBF;&#x7A0B;&#x57FA;&#x672C;&#x64CD;&#x4F5C;</h3><h4 id="currentThread-&#x65B9;&#x6CD5;"><a href="#currentThread-&#x65B9;&#x6CD5;" class="headerlink" title="currentThread()&#x65B9;&#x6CD5;"></a>currentThread()&#x65B9;&#x6CD5;</h4><p>currentThread()&#x65B9;&#x6CD5;&#x53EF;&#x8FD4;&#x56DE;&#x4EE3;&#x7801;&#x6BB5;&#x6B63;&#x5728;&#x88AB;&#x54EA;&#x4E2A;&#x7EBF;&#x7A0B;&#x8C03;&#x7528;&#x7684;&#x4FE1;&#x606F;&#x3002;</p>
+<p>&#x4F8B;&#xFF1A;<code>Thread.currentThread().getName()</code> &#x83B7;&#x53D6;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x540D;&#x79F0;</p>
+<h4 id="isAlive-&#x65B9;&#x6CD5;"><a href="#isAlive-&#x65B9;&#x6CD5;" class="headerlink" title="isAlive()&#x65B9;&#x6CD5;"></a>isAlive()&#x65B9;&#x6CD5;</h4><p>isAlive()&#x65B9;&#x6CD5;&#x7684;&#x529F;&#x80FD;&#x662F;&#x5224;&#x65AD;&#x5F53;&#x524D;&#x7684;&#x7EBF;&#x7A0B;&#x662F;&#x5426;&#x5904;&#x4E8E;&#x6D3B;&#x52A8;&#x72B6;&#x6001;&#x3002;</p>
+<p>&#x6D3B;&#x52A8;&#x72B6;&#x6001;&#x662F;&#x6307;&#x7EBF;&#x7A0B;&#x5DF2;&#x7ECF;&#x542F;&#x52A8;&#x4E14;&#x5C1A;&#x672A;&#x7EC8;&#x6B62;&#x3002;&#x7EBF;&#x7A0B;&#x5904;&#x4E8E;&#x6B63;&#x5728;&#x8FD0;&#x884C;&#x6216;&#x51C6;&#x5907;&#x5F00;&#x59CB;&#x8FD0;&#x884C;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x5C31;&#x8BA4;&#x4E3A;&#x7EBF;&#x7A0B;&#x662F;&#x201C;&#x5B58;&#x6D3B;&#x201D;&#x7684;&#x3002;</p>
+<h4 id="sleep-&#x65B9;&#x6CD5;"><a href="#sleep-&#x65B9;&#x6CD5;" class="headerlink" title="sleep()&#x65B9;&#x6CD5;"></a>sleep()&#x65B9;&#x6CD5;</h4><p>sleep()&#x65B9;&#x6CD5;&#x7684;&#x4F5C;&#x7528;&#x662F;&#x5728;&#x6307;&#x5B9A;&#x7684;&#x6BEB;&#x79D2;&#x6570;&#x5185;&#x8BA9;&#x5F53;&#x524D;&#x201C;&#x6B63;&#x5728;&#x6267;&#x884C;&#x7684;&#x7EBF;&#x7A0B;&#x201D;&#x4F11;&#x7720;&#x3002;</p>
+<p>&#x4F8B;&#xFF1A;<code>Thread.sleep(2000);</code>&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x4F11;&#x7720;2&#x79D2;</p>
+<h4 id="getId-&#x65B9;&#x6CD5;"><a href="#getId-&#x65B9;&#x6CD5;" class="headerlink" title="getId()&#x65B9;&#x6CD5;"></a>getId()&#x65B9;&#x6CD5;</h4><p>getId()&#x65B9;&#x6CD5;&#x7684;&#x4F5C;&#x7528;&#x662F;&#x83B7;&#x53D6;&#x7EBF;&#x7A0B;&#x7684;&#x552F;&#x4E00;&#x6807;&#x8BC6;&#x3002;</p>
+<p>&#x4F8B;&#xFF1A;<code>Thread.currentThread.getId();</code> &#x83B7;&#x53D6;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x7684;&#x552F;&#x4E00;&#x6807;&#x8BC6;</p>
+<h3 id="&#x53C2;&#x8003;&#x6587;&#x732E;"><a href="#&#x53C2;&#x8003;&#x6587;&#x732E;" class="headerlink" title="&#x53C2;&#x8003;&#x6587;&#x732E;"></a>&#x53C2;&#x8003;&#x6587;&#x732E;</h3><p>&#x300A;Java&#x591A;&#x7EBF;&#x7A0B;&#x7F16;&#x7A0B;&#x6838;&#x5FC3;&#x6280;&#x672F;&#x300B;</p>
 ]]></content>
     </entry>
     
