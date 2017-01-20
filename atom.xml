@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tedhacker.top/"/>
-  <updated>2017-01-15T10:47:32.000Z</updated>
+  <updated>2017-01-20T09:25:45.000Z</updated>
   <id>http://tedhacker.top/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://tedhacker.top/2017/01/02/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/"/>
     <id>http://tedhacker.top/2017/01/02/Java多线程基本知识整理/</id>
     <published>2017-01-01T16:29:07.000Z</published>
-    <updated>2017-01-15T10:47:32.000Z</updated>
+    <updated>2017-01-20T09:25:45.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="&#x57FA;&#x672C;&#x6982;&#x5FF5;"><a href="#&#x57FA;&#x672C;&#x6982;&#x5FF5;" class="headerlink" title="&#x57FA;&#x672C;&#x6982;&#x5FF5;"></a>&#x57FA;&#x672C;&#x6982;&#x5FF5;</h3><p>&#x591A;&#x7EBF;&#x7A0B;&#x662F;&#x6307;&#x4ECE;&#x8F6F;&#x4EF6;&#x6216;&#x8005;&#x786C;&#x4EF6;&#x4E0A;&#x5B9E;&#x73B0;&#x591A;&#x4E2A;&#x7EBF;&#x7A0B;&#x5E76;&#x53D1;&#x6267;&#x884C;&#x7684;&#x6280;&#x672F;&#x3002;&#x5177;&#x6709;&#x591A;&#x7EBF;&#x7A0B;&#x80FD;&#x529B;&#x7684;&#x8BA1;&#x7B97;&#x673A;&#x56E0;&#x6709;&#x786C;&#x4EF6;&#x652F;&#x6301;&#x800C;&#x80FD;&#x591F;&#x5728;&#x540C;&#x4E00;&#x65F6;&#x95F4;&#x6267;&#x884C;&#x591A;&#x4E8E;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#xFF0C;&#x8FDB;&#x800C;&#x63D0;&#x5347;&#x6574;&#x4F53;&#x5904;&#x7406;&#x6027;&#x80FD;&#x3002;</p>
 <p><strong>&#x5E76;&#x53D1;</strong>&#xFF1A;&#x5728;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4E2D;&#x6307;&#x4E00;&#x4E2A;&#x65F6;&#x95F4;&#x6BB5;&#x4E2D;&#x6709;&#x51E0;&#x4E2A;&#x7A0B;&#x5E8F;&#x90FD;&#x5904;&#x4E8E;&#x5DF2;&#x542F;&#x52A8;&#x8FD0;&#x884C;&#x5230;&#x8FD0;&#x884C;&#x5B8C;&#x6BD5;&#x4E4B;&#x95F4;&#xFF0C;&#x4E14;&#x8FD9;&#x51E0;&#x4E2A;&#x7A0B;&#x5E8F;&#x90FD;&#x662F;&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x5904;&#x7406;&#x673A;&#x4E0A;&#x8FD0;&#x884C;&#xFF0C;&#x4F46;&#x4EFB;&#x4E00;&#x4E2A;&#x65F6;&#x523B;&#x70B9;&#x4E0A;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x7A0B;&#x5E8F;&#x5728;&#x5904;&#x7406;&#x673A;&#x4E0A;&#x8FD0;&#x884C;&#x3002;</p>
@@ -66,9 +66,13 @@
 <ul>
 <li>&#x4F7F;&#x7528;&#x9000;&#x51FA;&#x6807;&#x5FD7;&#xFF0C;&#x4F7F;&#x7EBF;&#x7A0B;&#x6B63;&#x5E38;&#x9000;&#x51FA;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x5F53;run&#x65B9;&#x6CD5;&#x5B8C;&#x6210;&#x540E;&#x7EBF;&#x7A0B;&#x7EC8;&#x6B62;&#x3002;</li>
 <li>&#x4F7F;&#x7528;stop&#x65B9;&#x6CD5;&#x5F3A;&#x884C;&#x7EC8;&#x6B62;&#x7EBF;&#x7A0B;&#xFF0C;&#x4F46;&#x662F;&#x4E0D;&#x63A8;&#x8350;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x56E0;&#x4E3A;stop&#x548C;suspend&#x3001;resume&#x4E00;&#x6837;&#xFF0C;&#x90FD;&#x662F;&#x4F5C;&#x5E9F;&#x8FC7;&#x671F;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x4F7F;&#x7528;&#x5B83;&#x4EEC;&#x53EF;&#x80FD;&#x4EA7;&#x751F;&#x4E0D;&#x53EF;&#x9884;&#x6599;&#x7684;&#x7ED3;&#x679C;&#x3002;</li>
-<li>&#x4F7F;&#x7528;unterrupt&#x65B9;&#x6CD5;&#x4E2D;&#x65AD;&#x7EBF;&#x7A0B;&#x3002;</li>
+<li>&#x4F7F;&#x7528;interrupt&#x65B9;&#x6CD5;&#x4E2D;&#x65AD;&#x7EBF;&#x7A0B;&#x3002;</li>
 </ul>
-<p>&#x5224;&#x65AD;&#x7EBF;&#x7A0B;</p>
+<h5 id="&#x5224;&#x65AD;&#x7EBF;&#x7A0B;&#x662F;&#x5426;&#x662F;&#x505C;&#x6B62;&#x72B6;&#x6001;"><a href="#&#x5224;&#x65AD;&#x7EBF;&#x7A0B;&#x662F;&#x5426;&#x662F;&#x505C;&#x6B62;&#x72B6;&#x6001;" class="headerlink" title="&#x5224;&#x65AD;&#x7EBF;&#x7A0B;&#x662F;&#x5426;&#x662F;&#x505C;&#x6B62;&#x72B6;&#x6001;"></a>&#x5224;&#x65AD;&#x7EBF;&#x7A0B;&#x662F;&#x5426;&#x662F;&#x505C;&#x6B62;&#x72B6;&#x6001;</h5><p>&#x5728;Java&#x4E2D;&#xFF0C;Thread&#x7C7B;&#x63D0;&#x4F9B;&#x4E86;&#x4E24;&#x79CD;&#x65B9;&#x6CD5;&#x5224;&#x65AD;&#x7EBF;&#x7A0B;&#x662F;&#x5426;&#x505C;&#x6B62;</p>
+<ul>
+<li><code>this.interrupted()</code>: &#x6D4B;&#x8BD5;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x662F;&#x5426;&#x5DF2;&#x7ECF;&#x662F;&#x4E2D;&#x65AD;&#x72B6;&#x6001;&#xFF0C;&#x6267;&#x884C;&#x540E;&#x5177;&#x6709;&#x5C06;&#x72B6;&#x6001;&#x6807;&#x5FD7;&#x7F6E;&#x4E3A;false&#x7684;&#x529F;&#x80FD;&#x3002;</li>
+<li><code>this.isInterrupted()</code>: &#x6D4B;&#x8BD5;&#x7EBF;&#x7A0B;Thread&#x5BF9;&#x8C61;&#x662F;&#x5426;&#x5DF2;&#x7ECF;&#x662F;&#x4E2D;&#x65AD;&#x72B6;&#x6001;&#xFF0C;&#x4F46;&#x4E0D;&#x6E05;&#x9664;&#x72B6;&#x6001;&#x6807;&#x5FD7;&#x3002;</li>
+</ul>
 <h3 id="&#x53C2;&#x8003;&#x6587;&#x732E;"><a href="#&#x53C2;&#x8003;&#x6587;&#x732E;" class="headerlink" title="&#x53C2;&#x8003;&#x6587;&#x732E;"></a>&#x53C2;&#x8003;&#x6587;&#x732E;</h3><p>&#x300A;Java&#x591A;&#x7EBF;&#x7A0B;&#x7F16;&#x7A0B;&#x6838;&#x5FC3;&#x6280;&#x672F;&#x300B;</p>
 ]]></content>
     
